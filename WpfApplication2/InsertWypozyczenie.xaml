@@ -1,0 +1,91 @@
+﻿<Page x:Class="WpfApplication2.InsertWypozyczenie"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApplication2"
+      mc:Ignorable="d" 
+      d:DesignHeight="325" d:DesignWidth="525"
+      Title="InsertWypozyczenie"
+      Background="White">
+
+    <Grid
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Width="500" 
+        Height="300"
+        Margin="0 15 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" 
+               Grid.Row="0"
+               FontSize="18"
+               Content="ID Wypożyczenia" 
+               Margin="14,0,0,0"/>
+        <Label Grid.Column="0" 
+               Grid.Row="1"
+               FontSize="18"
+               Content="ID Sprzętu" 
+               Margin="14,0,0,0"/>
+        <Label Grid.Column="0" 
+               Grid.Row="2"
+               FontSize="18"
+               Content="ID Klienta" 
+               Margin="14,0,0,0"/>
+        <Label Grid.Column="0" 
+               Grid.Row="3"
+               FontSize="18"
+               Content="Data od" 
+               Margin="14,0,0,0"/>
+        <Label Grid.Column="0" 
+               Grid.Row="4"
+               FontSize="18"
+               Content="Data do" 
+               Margin="14,0,0,0"/>
+
+        <TextBox x:Name="tB0"
+                 Grid.Column="1"
+                 Grid.Row="0"
+                 FontSize="22"
+                 IsEnabled="False"
+                 Text="auto"
+                 />
+        <TextBox x:Name="tB1" 
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 FontSize="18"/>
+        <TextBox x:Name="tB2" 
+                 Grid.Column="1"
+                 Grid.Row="2"
+                 FontSize="18"/>
+        <TextBox x:Name="tB3" 
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 FontSize="18"/>
+        <TextBox x:Name="tB4" 
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 FontSize="18"/>
+        <Button x:Name="btn1" 
+                Content="Insert" 
+                FontSize="16"
+                Grid.Row="5" 
+                Grid.Column="1" 
+                Click="btn1_Click" 
+                Margin="175,0,0,0"/>
+    </Grid>
+</Page>

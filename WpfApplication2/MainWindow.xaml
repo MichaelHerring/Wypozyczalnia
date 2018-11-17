@@ -1,0 +1,245 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="Wypożyczalnia" 
+        Height="700" Width="1050"
+        Background="#FFEEEEEE"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Button.Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        
+        <!--Menu-->
+        <DockPanel x:Name="Navigation" 
+                   HorizontalAlignment="Stretch"  
+                   Height="25" 
+                   LastChildFill="True" 
+                   VerticalAlignment="Top" 
+                   Background="Black" >
+            <Button x:Name="btn1" 
+                    Width="85"                     
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="btn1_Click">Connect</Button>
+            <Button x:Name="btn2" 
+                    Width="85"  
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="btn2_Click">Insert</Button>
+            <Button x:Name="btn3" 
+                    Width="85" 
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="btn3_Click" >Delete</Button>
+            <Button x:Name="btn4" 
+                    Width="85" 
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="btn4_Click" 
+                    Height="25" >Tables</Button>
+            <Grid>
+                <Button x:Name="Hamburger" 
+                        Width="36" 
+                        Height="25" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top" 
+                        BorderThickness="0"
+                        Click="Hamburger_Click">
+                    <Grid>
+                        <Rectangle Fill="White" 
+                           Width="22"
+                           Height="3" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           RadiusY="1" 
+                           RadiusX="1"/>
+                        <Rectangle Fill="White" 
+                           Width="22"
+                           Height="3" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           RadiusY="1" 
+                           RadiusX="1" Margin="0,-6,0,6"/>
+                        <Rectangle Fill="White" 
+                           Width="22"
+                           Height="3" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           RadiusY="1" 
+                           RadiusX="1" Margin="0,6,0,-6"/>
+                    </Grid>
+                </Button>
+            </Grid>
+        </DockPanel>
+
+        <!--Panel boczny-->
+        <StackPanel x:Name="SideStackPannel" 
+                    Background="#FF858585" 
+                    Width="160" 
+                    HorizontalAlignment="Right" 
+                    Margin="0 25 0 0"
+                    Visibility="Hidden"
+                    Panel.ZIndex="90">
+            <Label Height="25" Width="55" Content="Raporty" FontWeight="Bold" />
+            <Button Height="25" Background="#FF858585" Content="Raport 1" />
+            <Button Height="25" Background="#FF858585" Content="Raport 2" />
+            <Button Height="25" Background="#FF858585" Content="Raport 3" />
+            <Button Height="25" Background="#FF858585" Content="Raport 4" />
+        </StackPanel>
+
+        <!--Listy rozwijane-->
+        <StackPanel x:Name="StackPanel1"
+                    Height="100" 
+                    VerticalAlignment="Top" 
+                    Margin="85,25,0,0" 
+                    HorizontalAlignment="Left" 
+                    Width="85"
+                    Visibility="Hidden"
+                    Panel.ZIndex="100"
+                    MouseLeave="StackPanel1_MouseLeave">
+            <Button x:Name="btnKlient" 
+                    Content="Klient" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnKlient_Click"/>
+            <Button x:Name="btnSprzet" 
+                    Content="Sprzęt" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnSprzet_Click"/>
+            <Button x:Name="btnWypozyczenie" 
+                    Content="Wypozyczenie" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnWypozyczenie_Click"/>
+            <Button x:Name="btnRodzaj" 
+                    Content="Rodzaj Sprzętu" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnRodzaj_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="StackPanel2"
+                    Height="100" 
+                    VerticalAlignment="Top" 
+                    Margin="170,25,0,0" 
+                    HorizontalAlignment="Left" 
+                    Width="85"
+                    Visibility="Hidden"
+                    Panel.ZIndex="100"
+                    MouseLeave="StackPanel2_MouseLeave">
+            <Button x:Name="btnKlientDel" 
+                    Content="Klient" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0" 
+                    Click="btnKlientDel_Click"/>
+            <Button x:Name="btnSprzetDel" 
+                    Content="Sprzęt" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnSprzetDel_Click"/>
+            <Button x:Name="btnWypozyczenieDel" 
+                    Content="Wypozyczenie" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnWypozyczenieDel_Click"/>
+            <Button x:Name="btnRodzajDel" 
+                    Content="Rodzaj Sprzętu" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnRodzajDel_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="StackPanel3"
+                    Height="100" 
+                    VerticalAlignment="Top" 
+                    Margin="255,25,0,0" 
+                    HorizontalAlignment="Left" 
+                    Width="85"
+                    Visibility="Hidden"
+                    Panel.ZIndex="100"
+                    MouseLeave="StackPanel3_MouseLeave">
+            <Button x:Name="TableBtn1" 
+                    Content="Klient" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="TableBtn1_Click"/>
+            <Button x:Name="TableBtn2" 
+                    Content="Sprzęt" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="TableBtn2_Click"/>
+            <Button x:Name="TableBtn3" 
+                    Content="Wypozyczenie" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="TableBtn3_Click"/>
+            <Button x:Name="TableBtn4" 
+                    Content="Rodzaj Sprzętu" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="TableBtn4_Click"/>
+        </StackPanel>
+
+        <!--Frames-->
+        <Grid Margin="0 25 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="525"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="140"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Frame x:Name="Container" 
+                   Background="White"
+                   Grid.Column="0"
+                   NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="Container2" 
+                   Background="White"
+                   Grid.Column="1"
+                   NavigationUIVisibility="Hidden" />
+            <Label Content="Powiadomienia"
+                   FontSize="14"
+                   Grid.Row="1"
+                   Margin="16 8 0 0"
+                   Height="26"
+                   VerticalAlignment="Top"
+                   />
+            <TextBlock x:Name="textBlock"
+                       Margin="32 36 32 0"
+                       FontSize="12"
+                       FontFamily="Consolas"
+                       Grid.Row="1" 
+                       TextWrapping="Wrap" 
+                       Text="Powiadomienie 1" 
+                       VerticalAlignment="Top" 
+                       Height="100" 
+                       HorizontalAlignment="Stretch"
+                       Grid.ColumnSpan="2"/>
+        </Grid>
+    </Grid>
+</Window>
