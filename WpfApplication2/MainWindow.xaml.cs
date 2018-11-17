@@ -178,7 +178,6 @@ namespace WpfApplication2
             //image animation
             /*
             image.Opacity = 0;
-            Navigation.Opacity = 0;
             DoubleAnimation animation = new DoubleAnimation();
             animation.BeginTime = TimeSpan.FromSeconds(1);
             animation.From = 0;
@@ -187,6 +186,7 @@ namespace WpfApplication2
             image.BeginAnimation(OpacityProperty, animation);
             */
             //menu animation
+            Navigation.Opacity = 0;
             DoubleAnimation NavAnimation = new DoubleAnimation();
             NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
             NavAnimation.From = 0;

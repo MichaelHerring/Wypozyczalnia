@@ -8,13 +8,6 @@
       d:DesignHeight="325" d:DesignWidth="525"
       Title="InsertKlient"
       Background="White">
-    <Page.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#FFF0F0F0"></Setter>
-            <Setter Property="BorderThickness" Value="1"></Setter>
-            <Setter Property="BorderBrush" Value="White"></Setter>
-        </Style>
-    </Page.Resources>
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
