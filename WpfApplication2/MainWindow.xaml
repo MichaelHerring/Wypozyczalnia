@@ -21,7 +21,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        
+
         <!--Menu-->
         <DockPanel x:Name="Navigation" 
                    HorizontalAlignment="Stretch"  
@@ -222,24 +222,42 @@
                    Background="White"
                    Grid.Column="1"
                    NavigationUIVisibility="Hidden" />
-            <Label Content="Powiadomienia"
+            <Label 
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Background="#FF424242"
+                BorderThickness="2"
+                BorderBrush="Gray"/>
+            <Label
                    FontSize="14"
+                   Background="Gray"
                    Grid.Row="1"
-                   Margin="16 8 0 0"
-                   Height="26"
+                   Margin="2,2,2,0"
+                   Height="28"
                    VerticalAlignment="Top"
-                   />
-            <TextBlock x:Name="textBlock"
-                       Margin="32 36 32 0"
+                   HorizontalAlignment="Stretch" 
+                   Grid.ColumnSpan="2"/>
+            <Label Content="Messages"
+                   FontSize="14"
+                   Background="Gray"
+                   Grid.Row="1"
+                   Margin="18,2,2,0"
+                   Height="28"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"/>
+            <TextBlock x:Name="textBlockMessage"
+                       Margin="24 38 24 0"
                        FontSize="12"
                        FontFamily="Consolas"
+                       Foreground="White"
                        Grid.Row="1" 
                        TextWrapping="Wrap" 
                        Text="Powiadomienie 1" 
                        VerticalAlignment="Top" 
-                       Height="100" 
+                       Height="88" 
                        HorizontalAlignment="Stretch"
-                       Grid.ColumnSpan="2"/>
+                       Grid.ColumnSpan="2"
+                       Background="#FF424242" />
         </Grid>
     </Grid>
 </Window>

@@ -35,6 +35,17 @@ namespace WpfApplication2
             this.connection = conn;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Navigation.Opacity = 0;
+            DoubleAnimation NavAnimation = new DoubleAnimation();
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
+            NavAnimation.From = 0;
+            NavAnimation.To = 1;
+            NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
+            Navigation.BeginAnimation(OpacityProperty, NavAnimation);
+        }
+
         //ukrywanie paneli
         private void StackPanel1_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -170,38 +181,6 @@ namespace WpfApplication2
         private void btnRodzajDel_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //image animation
-            /*
-            image.Opacity = 0;
-            DoubleAnimation animation = new DoubleAnimation();
-            animation.BeginTime = TimeSpan.FromSeconds(1);
-            animation.From = 0;
-            animation.To = 1;
-            animation.Duration = TimeSpan.FromSeconds(2);
-            image.BeginAnimation(OpacityProperty, animation);
-            */
-            //menu animation
-            Navigation.Opacity = 0;
-            DoubleAnimation NavAnimation = new DoubleAnimation();
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
-            NavAnimation.From = 0;
-            NavAnimation.To = 1;
-            NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
-            Navigation.BeginAnimation(OpacityProperty, NavAnimation);
-            /*
-            Container.Content = new Connect();
-            Container.Opacity = 0;
-            DoubleAnimation animation2 = new DoubleAnimation();
-            animation2.BeginTime = TimeSpan.FromSeconds(3);
-            animation2.From = 0;
-            animation2.To = 1;
-            animation.Duration = TimeSpan.FromSeconds(0.5);
-            Container.BeginAnimation(OpacityProperty, animation2);*/
         }
 
         private void Hamburger_Click(object sender, RoutedEventArgs e)
