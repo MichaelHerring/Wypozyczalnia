@@ -33,6 +33,13 @@ namespace WpfApplication2
         {
             InitializeComponent();
             this.connection = conn;
+            DeleteKlient.wyslaneInfo += DeleteKlient_wyslaneInfo;
+        } 
+        
+        //przekazywanie wiadomości       
+        void DeleteKlient_wyslaneInfo(string komunikat)
+        {
+            MessageViewer.Content += komunikat;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -43,7 +50,7 @@ namespace WpfApplication2
             NavAnimation.From = 0;
             NavAnimation.To = 1;
             NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
-            Navigation.BeginAnimation(OpacityProperty, NavAnimation);
+            Navigation.BeginAnimation(OpacityProperty, NavAnimation);            
         }
 
         //ukrywanie paneli

@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
         Title="Wypożyczalnia" 
-        Height="700" Width="1050"
-        Background="#FFEEEEEE"
+        Height="700" Width="1050"        
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="Button">
@@ -222,7 +221,7 @@
                    Background="White"
                    Grid.Column="1"
                    NavigationUIVisibility="Hidden" />
-            <Label 
+            <Label
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 Background="#FF424242"
@@ -245,19 +244,30 @@
                    Height="28"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"/>
-            <TextBlock x:Name="textBlockMessage"
+            <!--TextBlock x:Name="textBlockMessage"
                        Margin="24 38 24 0"
                        FontSize="12"
                        FontFamily="Consolas"
                        Foreground="White"
                        Grid.Row="1" 
                        TextWrapping="Wrap" 
-                       Text="Powiadomienie 1" 
+                       Text="Powiadomienie 113241231" 
                        VerticalAlignment="Top" 
                        Height="88" 
                        HorizontalAlignment="Stretch"
                        Grid.ColumnSpan="2"
-                       Background="#FF424242" />
+                       Background="#FF424242" /-->
+            <ScrollViewer x:Name="MessageViewer"
+                       Margin="24 38 2 0"
+                       FontSize="12"
+                       FontFamily="Consolas"
+                       Foreground="White"
+                       Grid.Row="1" 
+                       VerticalAlignment="Top" 
+                       Height="100" 
+                       HorizontalAlignment="Stretch"
+                       Grid.ColumnSpan="2"
+                       Background="#FF424242"/>
         </Grid>
     </Grid>
 </Window>

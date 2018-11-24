@@ -29,6 +29,10 @@ namespace WpfApplication2
         SqlCommand delCommand;
         SqlDataReader reader;
 
+        //delegat i zdarzenie do przekazywania wiadomości
+        public delegate void WyslijInfo(string komunikat);
+        public static event WyslijInfo wyslaneInfo;
+
         public DeleteKlient()
         {
             InitializeComponent();
@@ -37,7 +41,7 @@ namespace WpfApplication2
         public DeleteKlient(SqlConnection conn)
         {
             InitializeComponent();
-            this.connection = conn;
+            this.connection = conn;            
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
@@ -60,7 +64,8 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message + "\n");
                 }
                 finally
                 {
@@ -72,7 +77,8 @@ namespace WpfApplication2
             }
             catch(Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                //MessageBox.Show(exc.Message);
+                wyslaneInfo(exc.Message + "\n");
             }
         }
 
@@ -95,16 +101,19 @@ namespace WpfApplication2
                     tB6.Text = "";
                     if (i != 0)
                     {
-                        MessageBox.Show("Usunięto rekord");
+                        //MessageBox.Show("Usunięto rekord");
+                        wyslaneInfo("Usunięto rekord \n");
                     }
                     else
                     {
-                        MessageBox.Show("Błąd podczas usuwania.", "Error");
+                        //MessageBox.Show("Błąd podczas usuwania.", "Error");
+                        wyslaneInfo("Błąd podczas usuwania. \n");
                     }
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message + "\n");
                 }
             }
         }
