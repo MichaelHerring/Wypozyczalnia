@@ -258,16 +258,17 @@
                        Grid.ColumnSpan="2"
                        Background="#FF424242" /-->
             <ScrollViewer x:Name="MessageViewer"
-                       Margin="24 38 2 0"
+                       Margin="24,30,2,0"
                        FontSize="12"
                        FontFamily="Consolas"
                        Foreground="White"
                        Grid.Row="1" 
                        VerticalAlignment="Top" 
-                       Height="100" 
+                       Height="108" 
                        HorizontalAlignment="Stretch"
                        Grid.ColumnSpan="2"
-                       Background="#FF424242"/>
+                       Background="#FF424242" 
+                       Opacity="0.85"/>
         </Grid>
     </Grid>
 </Window>

@@ -40,6 +40,7 @@ namespace WpfApplication2
         void DeleteKlient_wyslaneInfo(string komunikat)
         {
             MessageViewer.Content += komunikat;
+            MessageViewer.ScrollToEnd();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
