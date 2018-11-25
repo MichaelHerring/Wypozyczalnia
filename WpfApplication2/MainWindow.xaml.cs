@@ -33,13 +33,17 @@ namespace WpfApplication2
         {
             InitializeComponent();
             this.connection = conn;
-            DeleteKlient.wyslaneInfo += DeleteKlient_wyslaneInfo;
+            DeleteKlient.wyslaneInfo += WyswietlKomunikat;
+            InsertKlient.wyslaneInfo += WyswietlKomunikat;
+            InsertRodzaj.wyslaneInfo += WyswietlKomunikat;
+            InsertSprzet.wyslaneInfo += WyswietlKomunikat;
+            InsertWypozyczenie.wyslaneInfo += WyswietlKomunikat;
         } 
         
         //przekazywanie wiadomości       
-        void DeleteKlient_wyslaneInfo(string komunikat)
+        void WyswietlKomunikat(string komunikat)
         {
-            MessageViewer.Content += komunikat;
+            MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
         }
 
@@ -51,7 +55,7 @@ namespace WpfApplication2
             NavAnimation.From = 0;
             NavAnimation.To = 1;
             NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
-            Navigation.BeginAnimation(OpacityProperty, NavAnimation);            
+            Navigation.BeginAnimation(OpacityProperty, NavAnimation);
         }
 
         //ukrywanie paneli

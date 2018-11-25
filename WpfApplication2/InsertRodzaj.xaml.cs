@@ -26,6 +26,9 @@ namespace WpfApplication2
         string query = "insert into RodzajSprzetu values(@nazwa)";
         SqlCommand command;
 
+        public delegate void WyslijInfo(string komunikat);
+        public static event WyslijInfo wyslaneInfo;
+
         public InsertRodzaj()
         {
             InitializeComponent();
@@ -41,7 +44,8 @@ namespace WpfApplication2
         {
             if (tB1.Text == "")
             {
-                MessageBox.Show("Wprowadź wszystkie dane.", "Uwaga!");
+                //MessageBox.Show("Wprowadź wszystkie dane.", "Uwaga!");
+                wyslaneInfo("Wprowadź wszystkie dane.");
             }
             else
             {
@@ -51,11 +55,13 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Dodano rekord do tabeli Klient");
+                    //MessageBox.Show("Dodano rekord do tabeli Klient");
+                    wyslaneInfo("Dodano rekord do tabeli Klient");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message);
                 }
             }
         }

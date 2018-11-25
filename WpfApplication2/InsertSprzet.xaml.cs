@@ -32,6 +32,9 @@ namespace WpfApplication2
 
         string fillNazwa = "select distinct Nazwa_Sprzetu from Sprzet";
 
+        public delegate void WyslijInfo(string komunikat);
+        public static event WyslijInfo wyslaneInfo;
+
         public InsertSprzet()
         {
             InitializeComponent();
@@ -67,7 +70,8 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message);
                 }
                 finally
                 {
@@ -76,7 +80,8 @@ namespace WpfApplication2
             }
             catch(Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                //MessageBox.Show(exc.Message);
+                wyslaneInfo(exc.Message);
             }
         }
 
@@ -84,7 +89,8 @@ namespace WpfApplication2
         {
             if (cB1.Text == "" || cB2.Text == "" || dP1.Text == "" || tB4.Text == "" || cB3.Text == "")
             {
-                MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
+                //MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
+                wyslaneInfo("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.");
             }
             else
             {
@@ -98,11 +104,13 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Dodano rekord do tabeli Sprzęt");
+                    //MessageBox.Show("Dodano rekord do tabeli Sprzęt");
+                    wyslaneInfo("Dodano rekord do tabeli Sprzęt");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message);
                 }
             }
         }

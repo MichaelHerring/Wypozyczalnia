@@ -65,7 +65,7 @@ namespace WpfApplication2
                 catch (Exception exc)
                 {
                     //MessageBox.Show(exc.Message);
-                    wyslaneInfo(exc.Message + "\n");
+                    wyslaneInfo(exc.Message);
                 }
                 finally
                 {
@@ -78,7 +78,7 @@ namespace WpfApplication2
             catch(Exception exc)
             {
                 //MessageBox.Show(exc.Message);
-                wyslaneInfo(exc.Message + "\n");
+                wyslaneInfo(exc.Message);
             }
         }
 
@@ -102,18 +102,18 @@ namespace WpfApplication2
                     if (i != 0)
                     {
                         //MessageBox.Show("Usunięto rekord");
-                        wyslaneInfo("Usunięto rekord \n");
+                        wyslaneInfo("Usunięto rekord");
                     }
                     else
                     {
                         //MessageBox.Show("Błąd podczas usuwania.", "Error");
-                        wyslaneInfo("Błąd podczas usuwania. \n");
+                        wyslaneInfo("Błąd podczas usuwania.");
                     }
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
-                    wyslaneInfo(exc.Message + "\n");
+                    wyslaneInfo(exc.Message);
                 }
             }
         }

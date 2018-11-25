@@ -26,6 +26,9 @@ namespace WpfApplication2
         string query = "insert into Wypozyczenie values(@ID1, @ID2, @dataOd, @dataDo)";
         SqlCommand command;
 
+        public delegate void WyslijInfo(string komunikat);
+        public static event WyslijInfo wyslaneInfo;
+
         public InsertWypozyczenie()
         {
             InitializeComponent();
@@ -41,7 +44,8 @@ namespace WpfApplication2
         {
             if (tB1.Text == "" || tB2.Text == "" || tB3.Text == "" || tB4.Text == "")
             {
-                MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
+                //MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
+                wyslaneInfo("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.");
             }
             else
             {
@@ -54,11 +58,13 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Dodano rekord do tabeli Klient");
+                    //MessageBox.Show("Dodano rekord do tabeli Klient");
+                    wyslaneInfo("Dodano rekord do tabeli Klient");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
+                    wyslaneInfo(exc.Message);
                 }
             }
         }
