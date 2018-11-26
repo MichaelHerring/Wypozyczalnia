@@ -24,6 +24,9 @@ namespace WpfApplication2
     {
         SqlConnection connection;
 
+        bool czy_otwarta_pierwsza = false;
+        bool czy_otwarta_druga = false;
+        bool czy_otwarte_trzecie = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,26 +61,7 @@ namespace WpfApplication2
             Navigation.BeginAnimation(OpacityProperty, NavAnimation);
         }
 
-        //ukrywanie paneli
-        private void StackPanel1_MouseLeave(object sender, MouseEventArgs e)
-        {
-            StackPanel1.Visibility = Visibility.Hidden;
-        }
-
-        private void StackPanel2_MouseLeave(object sender, MouseEventArgs e)
-        {
-            StackPanel2.Visibility = Visibility.Hidden;
-        }
-
-        private void StackPanel3_MouseLeave(object sender, MouseEventArgs e)
-        {
-            StackPanel3.Visibility = Visibility.Hidden;
-        }
-
-        private void StackPanel4_MouseLeave(object sender, MouseEventArgs e)
-        {
-            StackPanel4.Visibility = Visibility.Hidden;
-        }
+       
 
         //Główne przyciski z menu
         private void btn1_Click(object sender, RoutedEventArgs e)
@@ -88,52 +72,43 @@ namespace WpfApplication2
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            if (StackPanel1.Visibility == Visibility.Visible)
-            {
-                StackPanel1.Visibility = Visibility.Hidden;                
-            }
-            else if (StackPanel1.Visibility == Visibility.Hidden)
+            if (czy_otwarta_pierwsza == false)
             {
                 StackPanel1.Visibility = Visibility.Visible;
-                DoubleAnimation animation = new DoubleAnimation();
-                animation.From = 0;
-                animation.To = 100;
-                animation.Duration = TimeSpan.FromSeconds(0.20);
-                StackPanel1.BeginAnimation(HeightProperty, animation);
+                czy_otwarta_pierwsza = true;
+            }
+            else if (czy_otwarta_pierwsza == true)
+            {
+                StackPanel1.Visibility = Visibility.Hidden;
+                czy_otwarta_pierwsza = false;
             }
         }
 
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
-            if (StackPanel2.Visibility == Visibility.Visible)
-            {
-                StackPanel2.Visibility = Visibility.Hidden;
-            }
-            else if (StackPanel2.Visibility == Visibility.Hidden)
+            if (czy_otwarta_druga == false)
             {
                 StackPanel2.Visibility = Visibility.Visible;
-                DoubleAnimation animation = new DoubleAnimation();
-                animation.From = 0;
-                animation.To = 100;
-                animation.Duration = TimeSpan.FromSeconds(0.20);
-                StackPanel2.BeginAnimation(HeightProperty, animation);
+                czy_otwarta_druga = true;
+            }
+            else if (czy_otwarta_druga == true)
+            {
+                StackPanel2.Visibility = Visibility.Hidden;
+                czy_otwarta_druga = false;
             }
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            if (StackPanel3.Visibility == Visibility.Visible)
-            {
-                StackPanel3.Visibility = Visibility.Hidden;
-            }
-            else if (StackPanel3.Visibility == Visibility.Hidden)
+            if (czy_otwarte_trzecie == false)
             {
                 StackPanel3.Visibility = Visibility.Visible;
-                DoubleAnimation animation = new DoubleAnimation();
-                animation.From = 0;
-                animation.To = 100;
-                animation.Duration = TimeSpan.FromSeconds(0.20);
-                StackPanel3.BeginAnimation(HeightProperty, animation);
+                czy_otwarte_trzecie = true;
+            }
+            else if (czy_otwarte_trzecie == true)
+            {
+                StackPanel3.Visibility = Visibility.Hidden;
+                czy_otwarte_trzecie = false;
             }
         }
 
@@ -154,52 +129,103 @@ namespace WpfApplication2
             }
         }
 
+        private void btn2_MouseEnter(object sender, MouseEventArgs e)
+        {
+            StackPanel1.Visibility = Visibility.Visible;
+            StackPanel2.Visibility = Visibility.Hidden;
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = true;
+            czy_otwarta_druga = false;
+            czy_otwarte_trzecie = false;
+        }
+
+        private void btn3_MouseEnter(object sender, MouseEventArgs e)
+        {
+            StackPanel1.Visibility = Visibility.Hidden;
+            StackPanel2.Visibility = Visibility.Visible;
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = false;
+            czy_otwarta_druga = true;
+            czy_otwarte_trzecie = false;
+        }
+
+        private void btn4_MouseEnter(object sender, MouseEventArgs e)
+        {
+            StackPanel1.Visibility = Visibility.Hidden;
+            StackPanel2.Visibility = Visibility.Hidden;
+            StackPanel3.Visibility = Visibility.Visible;
+            czy_otwarta_pierwsza = false;
+            czy_otwarta_druga = false;
+            czy_otwarte_trzecie = true;
+        }
+
+
         //Przyciski do wyświetlania tabel
         private void TableBtn1_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table1(connection);
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarte_trzecie = false;
+            
         }
 
         private void TableBtn2_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table2(connection);
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarte_trzecie = false;
         }
 
         private void TableBtn3_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table3(connection);
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarte_trzecie = false;
         }
 
         private void TableBtn4_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table4(connection);
+            StackPanel3.Visibility = Visibility.Hidden;
+            czy_otwarte_trzecie = false;
         }        
 
         //Przyciski do wstawiania rekordów do konkretnych tabel
         private void btnKlient_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new InsertKlient(connection);
+            StackPanel1.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = false;
         }
 
         private void btnSprzet_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new InsertSprzet(connection);
+            StackPanel1.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = false;
         }
 
         private void btnWypozyczenie_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new InsertWypozyczenie(connection);
+            StackPanel1.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = false;
         }
 
         private void btnRodzaj_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new InsertRodzaj(connection);
+            StackPanel1.Visibility = Visibility.Hidden;
+            czy_otwarta_pierwsza = false;
         }
 
         //Przyciski do usuwania z konkretnych tabel
         private void btnKlientDel_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new DeleteKlient(connection);
+            StackPanel2.Visibility = Visibility.Hidden;
+            czy_otwarta_druga = false;
+            
         }
 
         private void btnSprzetDel_Click(object sender, RoutedEventArgs e)
@@ -221,21 +247,25 @@ namespace WpfApplication2
         private void btnKlientUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateKlient();
+           
         }
 
         private void btnSprzetUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateSprzet();
+          
         }
 
         private void btnWypozyczenieUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateWypozyczenie();
+          
         }
 
         private void btnRodzajUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateRodzaj();
+           
         }
 
         private void Hamburger_Click(object sender, RoutedEventArgs e)
