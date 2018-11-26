@@ -74,6 +74,11 @@ namespace WpfApplication2
             StackPanel3.Visibility = Visibility.Hidden;
         }
 
+        private void StackPanel4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            StackPanel4.Visibility = Visibility.Hidden;
+        }
+
         //Główne przyciski z menu
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
@@ -129,6 +134,23 @@ namespace WpfApplication2
                 animation.To = 100;
                 animation.Duration = TimeSpan.FromSeconds(0.20);
                 StackPanel3.BeginAnimation(HeightProperty, animation);
+            }
+        }
+
+        private void btn5_Click(object sender, RoutedEventArgs e)
+        {
+            if (StackPanel4.Visibility == Visibility.Visible)
+            {
+                StackPanel4.Visibility = Visibility.Hidden;
+            }
+            else if (StackPanel4.Visibility == Visibility.Hidden)
+            {
+                StackPanel4.Visibility = Visibility.Visible;
+                DoubleAnimation animation = new DoubleAnimation();
+                animation.From = 0;
+                animation.To = 100;
+                animation.Duration = TimeSpan.FromSeconds(0.20);
+                StackPanel4.BeginAnimation(HeightProperty, animation);
             }
         }
 
@@ -193,6 +215,27 @@ namespace WpfApplication2
         private void btnRodzajDel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        //Przyciski do updatowania konkretnych tabel
+        private void btnKlientUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Content = new UpdateKlient();
+        }
+
+        private void btnSprzetUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Content = new UpdateSprzet();
+        }
+
+        private void btnWypozyczenieUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Content = new UpdateWypozyczenie();
+        }
+
+        private void btnRodzajUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Content = new UpdateRodzaj();
         }
 
         private void Hamburger_Click(object sender, RoutedEventArgs e)

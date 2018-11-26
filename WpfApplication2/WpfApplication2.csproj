@@ -88,6 +88,18 @@
     <Compile Include="Table4.xaml.cs">
       <DependentUpon>Table4.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateKlient.xaml.cs">
+      <DependentUpon>UpdateKlient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRodzaj.xaml.cs">
+      <DependentUpon>UpdateRodzaj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateSprzet.xaml.cs">
+      <DependentUpon>UpdateSprzet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateWypozyczenie.xaml.cs">
+      <DependentUpon>UpdateWypozyczenie.xaml</DependentUpon>
+    </Compile>
     <Page Include="Connect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +149,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Table4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateKlient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateRodzaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateSprzet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateWypozyczenie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

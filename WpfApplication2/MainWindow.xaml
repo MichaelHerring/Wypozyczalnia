@@ -49,6 +49,12 @@
                     FontWeight="Bold"
                     Click="btn4_Click" 
                     Height="25" >Tables</Button>
+            <Button x:Name="btn5" 
+                    Width="85" 
+                    BorderThickness="0"
+                    FontWeight="Bold"
+                    Click="btn5_Click" 
+                    Height="25" >Update</Button>
             <Grid>
                 <Button x:Name="Hamburger" 
                         Width="36" 
@@ -202,7 +208,41 @@
                     BorderThickness="0"
                     Click="TableBtn4_Click"/>
         </StackPanel>
-
+        <StackPanel x:Name="StackPanel4"
+                    Height="100" 
+                    VerticalAlignment="Top" 
+                    Margin="340,25,0,0" 
+                    HorizontalAlignment="Left" 
+                    Width="85"
+                    Visibility="Hidden"
+                    Panel.ZIndex="100"
+                    MouseLeave="StackPanel4_MouseLeave">
+            <Button x:Name="btnKlientUpdate" 
+                    Content="Klient" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0" 
+                    Click="btnKlientUpdate_Click"/>
+            <Button x:Name="btnSprzetUpdate" 
+                    Content="Sprzęt" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnSprzetUpdate_Click"/>
+            <Button x:Name="btnWypozyczenieUpdate" 
+                    Content="Wypożyczenie" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnWypozyczenieUpdate_Click"/>
+            <Button x:Name="btnRodzajUpdate" 
+                    Content="Rodzaj Sprzętu" 
+                    Height="25"
+                    Width="85"
+                    BorderThickness="0"
+                    Click="btnRodzajUpdate_Click"/>
+        </StackPanel>
+        
         <!--Frames-->
         <Grid Margin="0 25 0 0">
             <Grid.ColumnDefinitions>
