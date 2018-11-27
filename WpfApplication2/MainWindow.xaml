@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Wypożyczalnia" 
         Height="700" Width="1050"        
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" MouseDown="KliKniecie_w_oknie">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="Black" />

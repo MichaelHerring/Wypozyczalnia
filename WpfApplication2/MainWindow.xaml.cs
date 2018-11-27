@@ -317,5 +317,16 @@ namespace WpfApplication2
                 SideStackPannel.BeginAnimation(WidthProperty, animation);
             }
         }
+
+        private void KliKniecie_w_oknie(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ClickCount==1)
+            {
+                StackPanel1.Visibility = Visibility.Hidden;
+                StackPanel2.Visibility = Visibility.Hidden;
+                StackPanel3.Visibility = Visibility.Hidden;
+                StackPanel4.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }
