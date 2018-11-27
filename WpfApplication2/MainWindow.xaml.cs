@@ -26,7 +26,9 @@ namespace WpfApplication2
 
         bool czy_otwarta_pierwsza = false;
         bool czy_otwarta_druga = false;
-        bool czy_otwarte_trzecie = false;
+        bool czy_otwarta_trzecia = false;
+        bool czy_otwarta_czwarta = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -100,20 +102,21 @@ namespace WpfApplication2
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-            if (czy_otwarte_trzecie == false)
+            if (czy_otwarta_trzecia == false)
             {
                 StackPanel3.Visibility = Visibility.Visible;
-                czy_otwarte_trzecie = true;
+                czy_otwarta_trzecia = true;
             }
-            else if (czy_otwarte_trzecie == true)
+            else if (czy_otwarta_trzecia == true)
             {
                 StackPanel3.Visibility = Visibility.Hidden;
-                czy_otwarte_trzecie = false;
+                czy_otwarta_trzecia = false;
             }
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if (StackPanel4.Visibility == Visibility.Visible)
             {
                 StackPanel4.Visibility = Visibility.Hidden;
@@ -126,6 +129,16 @@ namespace WpfApplication2
                 animation.To = 100;
                 animation.Duration = TimeSpan.FromSeconds(0.20);
                 StackPanel4.BeginAnimation(HeightProperty, animation);
+            }*/
+            if (czy_otwarta_czwarta == false)
+            {
+                StackPanel4.Visibility = Visibility.Visible;
+                czy_otwarta_czwarta = true;
+            }
+            else if (czy_otwarta_czwarta == true)
+            {
+                StackPanel4.Visibility = Visibility.Hidden;
+                czy_otwarta_czwarta = false;
             }
         }
 
@@ -134,9 +147,11 @@ namespace WpfApplication2
             StackPanel1.Visibility = Visibility.Visible;
             StackPanel2.Visibility = Visibility.Hidden;
             StackPanel3.Visibility = Visibility.Hidden;
+            StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_pierwsza = true;
             czy_otwarta_druga = false;
-            czy_otwarte_trzecie = false;
+            czy_otwarta_trzecia = false;
+            czy_otwarta_czwarta = false;
         }
 
         private void btn3_MouseEnter(object sender, MouseEventArgs e)
@@ -144,9 +159,11 @@ namespace WpfApplication2
             StackPanel1.Visibility = Visibility.Hidden;
             StackPanel2.Visibility = Visibility.Visible;
             StackPanel3.Visibility = Visibility.Hidden;
+            StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_pierwsza = false;
             czy_otwarta_druga = true;
-            czy_otwarte_trzecie = false;
+            czy_otwarta_trzecia = false;
+            czy_otwarta_czwarta = false;
         }
 
         private void btn4_MouseEnter(object sender, MouseEventArgs e)
@@ -154,43 +171,54 @@ namespace WpfApplication2
             StackPanel1.Visibility = Visibility.Hidden;
             StackPanel2.Visibility = Visibility.Hidden;
             StackPanel3.Visibility = Visibility.Visible;
+            StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_pierwsza = false;
             czy_otwarta_druga = false;
-            czy_otwarte_trzecie = true;
+            czy_otwarta_trzecia = true;
+            czy_otwarta_czwarta = false;
         }
-
+        private void btn5_MouseEnter(object sender, MouseEventArgs e)
+        {
+            StackPanel1.Visibility = Visibility.Hidden;
+            StackPanel2.Visibility = Visibility.Hidden;
+            StackPanel3.Visibility = Visibility.Hidden;
+            StackPanel4.Visibility = Visibility.Visible;
+            czy_otwarta_pierwsza = false;
+            czy_otwarta_druga = false;
+            czy_otwarta_trzecia = false;
+            czy_otwarta_czwarta = true;
+        }
 
         //Przyciski do wyświetlania tabel
         private void TableBtn1_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table1(connection);
             StackPanel3.Visibility = Visibility.Hidden;
-            czy_otwarte_trzecie = false;
-            
+            czy_otwarta_trzecia = false;            
         }
 
         private void TableBtn2_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table2(connection);
             StackPanel3.Visibility = Visibility.Hidden;
-            czy_otwarte_trzecie = false;
+            czy_otwarta_trzecia = false;
         }
 
         private void TableBtn3_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table3(connection);
             StackPanel3.Visibility = Visibility.Hidden;
-            czy_otwarte_trzecie = false;
+            czy_otwarta_trzecia = false;
         }
 
         private void TableBtn4_Click(object sender, RoutedEventArgs e)
         {
             Container2.Content = new Table4(connection);
             StackPanel3.Visibility = Visibility.Hidden;
-            czy_otwarte_trzecie = false;
+            czy_otwarta_trzecia = false;
         }        
 
-        //Przyciski do wstawiania rekordów do konkretnych tabel
+        //Przyciski do wyswietlania formularzy do wstawiania rekordów do konkretnych tabel
         private void btnKlient_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new InsertKlient(connection);
@@ -219,7 +247,7 @@ namespace WpfApplication2
             czy_otwarta_pierwsza = false;
         }
 
-        //Przyciski do usuwania z konkretnych tabel
+        //Przyciski do wyswietlania formularzy do usuwania z konkretnych tabel
         private void btnKlientDel_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new DeleteKlient(connection);
@@ -243,31 +271,36 @@ namespace WpfApplication2
 
         }
 
-        //Przyciski do updatowania konkretnych tabel
+        //Przyciski do wyswietlania formularzy do updatowania konkretnych tabel
         private void btnKlientUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateKlient();
-           
+            StackPanel4.Visibility = Visibility.Hidden;
+            czy_otwarta_czwarta = false;
         }
 
         private void btnSprzetUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateSprzet();
-          
+            StackPanel4.Visibility = Visibility.Hidden;
+            czy_otwarta_czwarta = false;
         }
 
         private void btnWypozyczenieUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateWypozyczenie();
-          
+            StackPanel4.Visibility = Visibility.Hidden;
+            czy_otwarta_czwarta = false;
         }
 
         private void btnRodzajUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateRodzaj();
-           
+            StackPanel4.Visibility = Visibility.Hidden;
+            czy_otwarta_czwarta = false;
         }
 
+        //przycisk do wyświetlania bocznego panelu
         private void Hamburger_Click(object sender, RoutedEventArgs e)
         {
             if (SideStackPannel.Visibility == Visibility.Visible)
