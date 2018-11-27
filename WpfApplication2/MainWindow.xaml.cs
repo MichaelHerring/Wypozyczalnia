@@ -23,7 +23,7 @@ namespace WpfApplication2
     public partial class MainWindow : Window
     {
         SqlConnection connection;
-
+        
         bool czy_otwarta_pierwsza = false;
         bool czy_otwarta_druga = false;
         bool czy_otwarte_trzecie = false;
