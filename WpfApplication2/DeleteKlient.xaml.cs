@@ -33,6 +33,8 @@ namespace WpfApplication2
         public delegate void WyslijInfo(string komunikat);
         public static event WyslijInfo wyslaneInfo;
 
+       
+
         public DeleteKlient()
         {
             InitializeComponent();
@@ -41,7 +43,8 @@ namespace WpfApplication2
         public DeleteKlient(SqlConnection conn)
         {
             InitializeComponent();
-            this.connection = conn;            
+            this.connection = conn;
+            
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)

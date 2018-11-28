@@ -42,6 +42,9 @@ namespace WpfApplication2
             InsertKlient.wyslaneInfo += WyswietlKomunikat;
             InsertRodzaj.wyslaneInfo += WyswietlKomunikat;
             InsertSprzet.wyslaneInfo += WyswietlKomunikat;
+            DeleteSprzet.wyslaneInfo += WyswietlKomunikat;
+            DeleteRodzajSprzetu.wyslaneInfo += WyswietlKomunikat;
+            //DeleteRodzajSprzetu.wyslanaliczba += WyswietlKomunikaty;
             InsertWypozyczenie.wyslaneInfo += WyswietlKomunikat;
         } 
         
@@ -51,6 +54,11 @@ namespace WpfApplication2
             MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
         }
+        //void WyswietlKomunikaty(int liczba)
+        //{
+        //    MessageViewer.Content += liczba + "\n";
+        //    MessageViewer.ScrollToEnd();
+        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -258,17 +266,23 @@ namespace WpfApplication2
 
         private void btnSprzetDel_Click(object sender, RoutedEventArgs e)
         {
-
+            Container.Content = new DeleteSprzet(connection);
+            StackPanel2.Visibility = Visibility.Hidden;
+            czy_otwarta_druga = false;
         }
 
         private void btnWypozyczenieDel_Click(object sender, RoutedEventArgs e)
         {
-
+            Container.Content = new DeleteWypozyczenie(connection);
+            StackPanel2.Visibility = Visibility.Hidden;
+            czy_otwarta_druga = false;
         }
 
         private void btnRodzajDel_Click(object sender, RoutedEventArgs e)
         {
-
+            Container.Content = new DeleteRodzajSprzetu(connection);
+            StackPanel2.Visibility = Visibility.Hidden;
+            czy_otwarta_druga = false;
         }
 
         //Przyciski do wyswietlania formularzy do updatowania konkretnych tabel

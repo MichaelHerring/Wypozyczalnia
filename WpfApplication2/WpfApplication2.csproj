@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,6 +64,15 @@
     </Compile>
     <Compile Include="DeleteKlient.xaml.cs">
       <DependentUpon>DeleteKlient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteRodzajSprzetu.xaml.cs">
+      <DependentUpon>DeleteRodzajSprzetu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteSprzet.xaml.cs">
+      <DependentUpon>DeleteSprzet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteWypozyczenie.xaml.cs">
+      <DependentUpon>DeleteWypozyczenie.xaml</DependentUpon>
     </Compile>
     <Compile Include="InsertKlient.xaml.cs">
       <DependentUpon>InsertKlient.xaml</DependentUpon>
@@ -105,6 +115,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeleteKlient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteRodzajSprzetu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteSprzet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteWypozyczenie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +208,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\smietnik.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
