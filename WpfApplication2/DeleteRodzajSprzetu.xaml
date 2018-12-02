@@ -14,11 +14,11 @@
         VerticalAlignment="Top"
         Width="500" 
         Height="300"
-        Margin="0 30 0 0">
+        Margin="0 15 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -30,7 +30,7 @@
 
         <TextBox Name="TBID" Grid.Column="1" Grid.Row="0" FontSize="18" />
 
-        <Button Name="btn_Pokaz" Content="Pokaz" Grid.Column="1" HorizontalAlignment="Left" Margin="175,0,0,0" Width="75" Click="btn_Pokaz_Click"/>
+        <Button Name="btn_Pokaz" Content="Pokaż" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" Margin="175,0,0,0" Width="75" Click="btn_Pokaz_Click"/>
 
         <TextBox Name="TBTEXT" IsEnabled="False" Grid.Column="1" Grid.Row="1" />
 

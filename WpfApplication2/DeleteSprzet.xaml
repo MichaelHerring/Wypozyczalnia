@@ -39,7 +39,7 @@
         <Label Content="Opis"  FontSize="18" Margin="14,0,0,0" Grid.Column="0" Grid.Row="4"/>
         <Label Content="Mężczyzna/Kobieta"  FontSize="18" Margin="14,0,0,0" Grid.Column="0" Grid.Row="5"/>
 
-        <TextBox Name="Tb_Sprzet" Grid.Column="1" Grid.Row="0" Margin="0,0,115,0"/>
+        <TextBox Name="Tb_Sprzet" Grid.Column="1" Grid.Row="0" Margin="0,0,75,0"/>
         <TextBox Name="Tb_Kategoria" Grid.Column="1" Grid.Row="1" IsEnabled="False"/>
         <TextBox Name="Tb_Nazwa" Grid.Column="1" Grid.Row="2" IsEnabled="False"/>
         <TextBox Name="Tb_Data" Grid.Column="1" Grid.Row="3" IsEnabled="False"/>
@@ -48,7 +48,7 @@
 
 
         
-        <Button Name="btn1" Content="Sprawdź" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Top" Width="115" Grid.Column="1" Height="33" Click="btn1_Click"/>
+        <Button Name="btn1" Content="Pokaż" FontSize="16" HorizontalAlignment="Left" Margin="175,0,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="33" Click="btn1_Click"/>
         <Image MouseDown="Image_MouseDown" Grid.Column="1" HorizontalAlignment="Left" Height="77" Margin="165,13,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Source="Resources/smietnik.png">
             <Image.ToolTip>
                 <StackPanel>

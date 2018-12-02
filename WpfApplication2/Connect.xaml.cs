@@ -45,7 +45,8 @@ namespace WpfApplication2
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            builder.DataSource = "WIN-KOMPUTER\\SQLEXPRESS";
+            builder.DataSource = "localhost";
+            //builder.DataSource = "WIN-KOMPUTER\\SQLEXPRESS";
             builder.InitialCatalog = "Wypozyczalnia";
             if (chB1.IsChecked == true)
             {

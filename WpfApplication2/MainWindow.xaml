@@ -247,7 +247,7 @@
                     Click="btnRodzajUpdate_Click"/>
         </StackPanel>
         
-        <!--Frames-->
+        <!--Frames, Search Panel, Message panel-->
         <Grid Margin="0 25 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="525"></ColumnDefinition>
@@ -257,14 +257,37 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="140"></RowDefinition>
             </Grid.RowDefinitions>
+            
+            <!--Frame 1-->
             <Frame x:Name="Container" 
                    Background="White"
                    Grid.Column="0"
                    NavigationUIVisibility="Hidden"/>
+            <!--Search panel-->
+            <Grid Grid.Column="1" Height="25" VerticalAlignment="Top">
+                <DockPanel>
+                    <Label Content="Tabela:" BorderThickness="1" BorderBrush="Gray"/>
+                    <ComboBox Width="75"></ComboBox>
+                    <Label Content="Kolumna:" BorderThickness="1" BorderBrush="Gray"/>
+                    <ComboBox Width="75"></ComboBox>
+                    <Label Content="Wartość:" BorderThickness="1" BorderBrush="Gray"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="75"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"/>
+                        <Button Grid.Column="1" Content="Wyszukaj" Width="75" Background="#FFE6E6E6" Foreground="Black"></Button>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+            <!--Frame 2-->
             <Frame x:Name="Container2" 
                    Background="White"
                    Grid.Column="1"
-                   NavigationUIVisibility="Hidden" />
+                   NavigationUIVisibility="Hidden"
+                   Margin="0 25 0 0"/>
+            <!--Message panel-->
             <Label
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
