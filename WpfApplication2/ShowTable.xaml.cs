@@ -18,39 +18,43 @@ using System.Data;
 namespace WpfApplication2
 {
     /// <summary>
-    /// Interaction logic for Table4.xaml
+    /// Interaction logic for Tables.xaml
     /// </summary>
-    public partial class Table4 : Page
+    public partial class ShowTable : Page
     {
         SqlConnection connection;
+        string tableName;
 
-        public Table4()
+        public ShowTable()
         {
             InitializeComponent();
         }
 
-        public Table4(SqlConnection conn)
+        public ShowTable(SqlConnection conn, string x)
         {
             InitializeComponent();
             this.connection = conn;
+            this.tableName = x;
         }
 
         SqlCommand command;
         SqlDataAdapter adapter;
         DataTable table;
-        string query = "select * from Rodzaj_Sprzetu";
+        string query;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            query = $"select * from {tableName}";
             command = new SqlCommand(query, connection);
             adapter = new SqlDataAdapter(command);
             table = new DataTable();
 
-            try { 
+            try
+            {
                 adapter.Fill(table);
                 DataGr.ItemsSource = table.DefaultView;
             }
-            catch (Exception exc)
+            catch(Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }

@@ -200,28 +200,28 @@ namespace WpfApplication2
         //Przyciski do wyświetlania tabel
         private void TableBtn1_Click(object sender, RoutedEventArgs e)
         {
-            Container2.Content = new Table1(connection);
+            Container2.Content = new ShowTable(connection, "Klient");
             StackPanel3.Visibility = Visibility.Hidden;
             czy_otwarta_trzecia = false;            
         }
 
         private void TableBtn2_Click(object sender, RoutedEventArgs e)
         {
-            Container2.Content = new Table2(connection);
+            Container2.Content = new ShowTable(connection, "Sprzet");
             StackPanel3.Visibility = Visibility.Hidden;
             czy_otwarta_trzecia = false;
         }
 
         private void TableBtn3_Click(object sender, RoutedEventArgs e)
         {
-            Container2.Content = new Table3(connection);
+            Container2.Content = new ShowTable(connection, "Wypozyczenie");
             StackPanel3.Visibility = Visibility.Hidden;
             czy_otwarta_trzecia = false;
         }
 
         private void TableBtn4_Click(object sender, RoutedEventArgs e)
         {
-            Container2.Content = new Table4(connection);
+            Container2.Content = new ShowTable(connection, "Rodzaj_Sprzetu");
             StackPanel3.Visibility = Visibility.Hidden;
             czy_otwarta_trzecia = false;
         }        
