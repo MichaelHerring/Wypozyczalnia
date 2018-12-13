@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace WpfApplication2
 {
@@ -54,11 +55,6 @@ namespace WpfApplication2
             MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
         }
-        //void WyswietlKomunikaty(int liczba)
-        //{
-        //    MessageViewer.Content += liczba + "\n";
-        //    MessageViewer.ScrollToEnd();
-        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -340,6 +336,57 @@ namespace WpfApplication2
                 StackPanel2.Visibility = Visibility.Hidden;
                 StackPanel3.Visibility = Visibility.Hidden;
                 StackPanel4.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Wyszukiwanie
+        private void btnWyszukaj_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string tabela = ComboBoxTabela.Text;
+                string kolumna = ComboBoxKolumna.Text;
+                string wartosc = TextBoxWartosc.Text;
+                if (ComboBoxTabela.SelectedItem == null || ComboBoxKolumna.SelectedItem == null || wartosc == String.Empty)
+                {
+                    WyswietlKomunikat("Wybierz tabelę i kolumnę oraz wprowadź wartość.");
+                }
+                else
+                {
+                    string query = $"select * from {tabela} where {kolumna} like '{wartosc}'";
+                    Container2.Content = new WynikiWyszukania(query, connection);
+                }
+            }
+            catch (Exception exc)
+            {
+                WyswietlKomunikat(exc.Message);
+            }
+        }
+
+        private void ComboBoxTabela_DropDownClosed(object sender, EventArgs e)
+        {
+            try
+            {
+                //czyszczenie comboboxa z kolumnami
+                ComboBoxKolumna.Items.Clear();
+                //dodawanie nazw kolumn
+                if (ComboBoxTabela.SelectedItem != null)
+                {
+                    string selectedTable = ComboBoxTabela.Text;
+                    string query = $"select * from {selectedTable}";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach (DataColumn c in table.Columns)
+                    {
+                        ComboBoxKolumna.Items.Add(c.ToString());
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                WyswietlKomunikat(exc.Message);
             }
         }
     }

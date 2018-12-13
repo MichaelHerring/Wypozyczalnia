@@ -266,15 +266,20 @@
                    Grid.Column="0"
                    NavigationUIVisibility="Hidden"/>
             <!--Search panel-->
-            <Grid Grid.Column="1" Height="30" VerticalAlignment="Top" Background="Gray">
-                <DockPanel Margin="4" LastChildFill="False">
+            <Grid Grid.Column="1" Height="26" VerticalAlignment="Top" Background="Gray">
+                <DockPanel Margin="2" LastChildFill="False">
                     <Label Content="Tabela:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
-                    <ComboBox x:Name="ComboBoxTabela" Width="75"></ComboBox>
+                    <ComboBox x:Name="ComboBoxTabela" Width="75" DropDownClosed="ComboBoxTabela_DropDownClosed">
+                        <ComboBoxItem>Klient</ComboBoxItem>
+                        <ComboBoxItem>Sprzet</ComboBoxItem>
+                        <ComboBoxItem>Wypozyczenie</ComboBoxItem>
+                        <ComboBoxItem>Rodzaj_Sprzetu</ComboBoxItem>
+                    </ComboBox>
                     <Label Content="Kolumna:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
                     <ComboBox x:Name="ComboBoxKolumna" Width="75"></ComboBox>
                     <Label Content="Wartość:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
                     <TextBox x:Name="TextBoxWartosc" Width="118" Padding="2"/>
-                    <Button x:Name="btnWyszukaj" Content="Wyszukaj" Width="72" Background="#FFE6E6E6" Foreground="Black"></Button>
+                    <Button x:Name="btnWyszukaj" Content="Wyszukaj" Width="72" Background="#FFE6E6E6" Foreground="Black" Click="btnWyszukaj_Click"></Button>
                 </DockPanel>
             </Grid>
             <!--Frame 2-->
@@ -284,7 +289,8 @@
                    BorderBrush="Black"
                    Grid.Column="1"
                    NavigationUIVisibility="Hidden"
-                   Margin="0,30,0,0"/>
+                   Margin="0,26,0,0"/>
+
             <!--Message panel-->
             <Label
                 Grid.Row="1"

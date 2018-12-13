@@ -101,6 +101,9 @@
     <Compile Include="UpdateWypozyczenie.xaml.cs">
       <DependentUpon>UpdateWypozyczenie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WynikiWyszukania.xaml.cs">
+      <DependentUpon>WynikiWyszukania.xaml</DependentUpon>
+    </Compile>
     <Page Include="Connect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateWypozyczenie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WynikiWyszukania.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

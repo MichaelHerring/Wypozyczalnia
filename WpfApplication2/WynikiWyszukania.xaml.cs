@@ -18,46 +18,42 @@ using System.Data;
 namespace WpfApplication2
 {
     /// <summary>
-    /// Interaction logic for Tables.xaml
+    /// Interaction logic for WynikiWyszukania.xaml
     /// </summary>
-    public partial class ShowTable : Page
+    public partial class WynikiWyszukania : Page
     {
         SqlConnection connection;
-        string tableName;
+        string query;
+        SqlCommand command;
+        SqlDataAdapter adapter;
+        DataTable table;
 
         public delegate void WyslijInfo(string komunikat);
         public static event WyslijInfo wyslaneInfo;
 
-        public ShowTable()
+        public WynikiWyszukania()
         {
             InitializeComponent();
         }
 
-        public ShowTable(SqlConnection conn, string x)
+        public WynikiWyszukania(string x, SqlConnection conn)
         {
             InitializeComponent();
+            this.query = x;
             this.connection = conn;
-            this.tableName = x;
         }
-
-        SqlCommand command;
-        SqlDataAdapter adapter;
-        DataTable table;
-        string query;
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            query = $"select * from {tableName}";
-            command = new SqlCommand(query, connection);
-            adapter = new SqlDataAdapter(command);
-            table = new DataTable();
-
             try
             {
+                command = new SqlCommand(query, connection);
+                adapter = new SqlDataAdapter(command);
+                table = new DataTable();
                 adapter.Fill(table);
                 DataGr.ItemsSource = table.DefaultView;
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 wyslaneInfo(exc.Message);
             }
