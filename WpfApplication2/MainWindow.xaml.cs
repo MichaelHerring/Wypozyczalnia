@@ -58,13 +58,31 @@ namespace WpfApplication2
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Navigation.Opacity = 0;
+            //animacja menu
+            btn1.Opacity = 0;
+            btn2.Opacity = 0;
+            btn3.Opacity = 0;
+            btn4.Opacity = 0;
+            btn5.Opacity = 0;
+
             DoubleAnimation NavAnimation = new DoubleAnimation();
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
             NavAnimation.From = 0;
             NavAnimation.To = 1;
             NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
-            Navigation.BeginAnimation(OpacityProperty, NavAnimation);
+            btn1.BeginAnimation(OpacityProperty, NavAnimation);
+
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.6);
+            btn2.BeginAnimation(OpacityProperty, NavAnimation);
+
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.8);
+            btn3.BeginAnimation(OpacityProperty, NavAnimation);
+
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
+            btn4.BeginAnimation(OpacityProperty, NavAnimation);
+
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(1.2);
+            btn5.BeginAnimation(OpacityProperty, NavAnimation);
         }
 
        
@@ -360,6 +378,15 @@ namespace WpfApplication2
             catch (Exception exc)
             {
                 WyswietlKomunikat(exc.Message);
+            }
+        }
+
+        //Wyszukiwanie po kliknięciu entera
+        private void TextBoxWartosc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnWyszukaj_Click(this, new RoutedEventArgs());
             }
         }
 

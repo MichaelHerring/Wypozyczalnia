@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="Wypożyczalnia" 
         Height="700" Width="1050"        
-        Loaded="Window_Loaded" MouseDown="KliKniecie_w_oknie">
+        Loaded="Window_Loaded" 
+        MouseDown="KliKniecie_w_oknie"
+        WindowState="Maximized">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="Black" />
+            <Setter Property="Background" Value="#FF424242" />
             <Setter Property="Foreground" Value="White" />
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
@@ -29,31 +31,36 @@
                    VerticalAlignment="Top" 
                    Background="Black" >
             <Button x:Name="btn1" 
-                    Width="85"                     
+                    Width="85"
+                    Background="Black"
                     BorderThickness="0"
                     FontWeight="Bold"
                     Click="btn1_Click">Connect</Button>
             <Button x:Name="btn2" 
-                    Width="85"  
+                    Width="85"
+                    Background="Black"
                     BorderThickness="0"
                     FontWeight="Bold"
                     MouseEnter="btn2_MouseEnter"
                     Click="btn2_Click">Insert</Button>
             <Button x:Name="btn3" 
-                    Width="85" 
+                    Width="85"
+                    Background="Black"
                     BorderThickness="0"
                     FontWeight="Bold"
                     MouseEnter="btn3_MouseEnter"
                     Click="btn3_Click" >Delete</Button>
             <Button x:Name="btn4" 
-                    Width="85" 
+                    Width="85"
+                    Background="Black"
                     BorderThickness="0"
                     FontWeight="Bold"
                     MouseEnter="btn4_MouseEnter"
                     Click="btn4_Click" 
                     Height="25" >Tables</Button>
             <Button x:Name="btn5" 
-                    Width="85" 
+                    Width="85"
+                    Background="Black"
                     BorderThickness="0"
                     FontWeight="Bold"
                     MouseEnter="btn5_MouseEnter"
@@ -261,31 +268,32 @@
             <!--Frame 1-->
             <Frame x:Name="Container" 
                    Background="White"
-                   BorderThickness="1"
+                   BorderThickness="1, 0, 1, 1"
                    BorderBrush="Black"
                    Grid.Column="0"
                    NavigationUIVisibility="Hidden"/>
             <!--Search panel-->
             <Grid Grid.Column="1" Height="26" VerticalAlignment="Top" Background="Gray">
-                <DockPanel Margin="2" LastChildFill="False">
+                <DockPanel Margin="2" LastChildFill="True">
                     <Label Content="Tabela:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
-                    <ComboBox x:Name="ComboBoxTabela" Width="75" DropDownClosed="ComboBoxTabela_DropDownClosed">
+                    <ComboBox x:Name="ComboBoxTabela" Width="115" DropDownClosed="ComboBoxTabela_DropDownClosed">
                         <ComboBoxItem>Klient</ComboBoxItem>
                         <ComboBoxItem>Sprzet</ComboBoxItem>
                         <ComboBoxItem>Wypozyczenie</ComboBoxItem>
                         <ComboBoxItem>Rodzaj_Sprzetu</ComboBoxItem>
                     </ComboBox>
                     <Label Content="Kolumna:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
-                    <ComboBox x:Name="ComboBoxKolumna" Width="75"></ComboBox>
+                    <ComboBox x:Name="ComboBoxKolumna" Width="115"></ComboBox>
                     <Label Content="Wartość:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
-                    <TextBox x:Name="TextBoxWartosc" Width="118" Padding="2"/>
-                    <Button x:Name="btnWyszukaj" Content="Wyszukaj" Width="72" Background="#FFE6E6E6" Foreground="Black" Click="btnWyszukaj_Click"></Button>
+                    <TextBox x:Name="TextBoxWartosc" Width="118" Padding="2" KeyDown="TextBoxWartosc_KeyDown"/>
+                    <Button x:Name="btnWyszukaj" Content="Wyszukaj" Width="72" Background="#FFE6E6E6" Foreground="Black" Click="btnWyszukaj_Click" ></Button>
+                    <Label Background="#FFE8E8E8" BorderThickness="1" BorderBrush="Gray"/>
                 </DockPanel>
             </Grid>
             <!--Frame 2-->
             <Frame x:Name="Container2" 
                    Background="White"
-                   BorderThickness="1" 
+                   BorderThickness="0, 0, 1, 1" 
                    BorderBrush="Black"
                    Grid.Column="1"
                    NavigationUIVisibility="Hidden"
@@ -311,6 +319,7 @@
                    Grid.ColumnSpan="2"/>
             <ScrollViewer x:Name="MessageViewer"
                        Margin="24,30,2,0"
+                       Padding="2"
                        FontSize="12"
                        FontFamily="Consolas"
                        Foreground="White"
