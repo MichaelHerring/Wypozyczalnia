@@ -13,9 +13,9 @@
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="231"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -33,33 +33,27 @@
         <Label Grid.Column="0" 
                Grid.Row="0"
                FontSize="18"
-               Content="ID Sprzętu" 
-               Margin="14,0,0,0"/>
+               Content="ID Sprzętu" />
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="ID Kategorii" 
-               Margin="14,0,0,0"/>
+               Content="ID Kategorii" />
         <Label Grid.Column="0" 
                Grid.Row="2"
                FontSize="18"
-               Content="Nazwa Sprzętu" 
-               Margin="14,0,0,0"/>
+               Content="Nazwa Sprzętu" />
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="Data Zakupu (rrrr-mm-dd)" 
-               Margin="14,0,0,0"/>
+               Content="Data Zakupu (rrrr-mm-dd)" />
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
-               Content="Opis" 
-               Margin="14,0,0,0"/>
+               Content="Opis" />
         <Label Grid.Column="0" 
                Grid.Row="5"
                FontSize="18"
-               Content="Męski/Damski (k; m; k/m)" 
-               Margin="14,0,0,0"/>
+               Content="Męski/Damski (k; m; k/m)" />
 
         <TextBox x:Name="tB0"
                  Grid.Column="1"
@@ -105,6 +99,7 @@
                 Grid.Row="7" 
                 Grid.Column="1" 
                 Click="btn1_Click"
-                Margin="175,0,0,0"/>
+                HorizontalAlignment="Right"
+                Width="75"/>
     </Grid>
 </Page>

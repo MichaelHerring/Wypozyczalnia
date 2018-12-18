@@ -12,9 +12,9 @@
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="300"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -33,32 +33,27 @@
                Grid.Row="0"
                FontSize="18"
                Content="Wprowadź ID Sprzętu"
-               Margin="14,0,0,0" FontWeight="Bold"/>
+               FontWeight="Bold"/>
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="ID Kategorii" 
-               Margin="14,0,0,0"/>
+               Content="ID Kategorii" />
         <Label Grid.Column="0" 
                Grid.Row="2"
                FontSize="18"
-               Content="Nazwa Sprzętu" 
-               Margin="14,0,0,0"/>
+               Content="Nazwa Sprzętu" />
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="Data Zakupu (rrrr-mm-dd)" 
-               Margin="14,0,0,0"/>
+               Content="Data Zakupu (rrrr-mm-dd)" />
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
-               Content="Opis" 
-               Margin="14,0,0,0"/>
+               Content="Opis" />
         <Label Grid.Column="0" 
                Grid.Row="5"
                FontSize="18"
-               Content="Męski/Damski" 
-               Margin="14,0,0,0"/>
+               Content="Męski/Damski" />
 
         <TextBox x:Name="tB0"
                  Grid.Column="1"
@@ -95,8 +90,7 @@
                 FontSize="16"
                 Grid.Column="1"
                 Grid.Row="0"
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
                 Width="75" 
                 Height="33"
@@ -105,8 +99,7 @@
                 Content="Aktualizuj"
                 FontSize="16"
                 Grid.Column="1" 
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right"  
                 Grid.Row="6" 
                 VerticalAlignment="Top" 
                 Width="75" 

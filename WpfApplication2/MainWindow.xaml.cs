@@ -55,21 +55,21 @@ namespace WpfApplication2
             MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
 
+            ImageBulb.Opacity = 0;
+            ImageBulbBlack.Opacity = 1;
             DoubleAnimation FadeIn = new DoubleAnimation();
             FadeIn.From = 0;
             FadeIn.To = 1;
-            FadeIn.Duration = TimeSpan.FromSeconds(1);
+            FadeIn.Duration = TimeSpan.FromSeconds(3);
 
             DoubleAnimation FadeOut = new DoubleAnimation();
             FadeOut.From = 1;
             FadeOut.To = 0;
-            FadeOut.Duration = TimeSpan.FromSeconds(1);
-
-            ImageBulbBlack.BeginAnimation(OpacityProperty, FadeOut);
-            ImageBulb.BeginAnimation(OpacityProperty, FadeIn);
+            FadeOut.Duration = TimeSpan.FromSeconds(3);
 
             ImageBulb.BeginAnimation(OpacityProperty, FadeOut);
             ImageBulbBlack.BeginAnimation(OpacityProperty, FadeIn);
+            System.Media.SystemSounds.Beep.Play();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

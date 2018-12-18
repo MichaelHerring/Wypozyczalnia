@@ -12,9 +12,9 @@
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="300"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -34,28 +34,23 @@
         <Label Grid.Column="0" 
                Grid.Row="0"
                FontSize="18"
-               Content="ID Wypożyczenia" 
-               Margin="14,0,0,0"/>
+               Content="ID Wypożyczenia" />
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="ID Sprzętu" 
-               Margin="14,0,0,0"/>
+               Content="ID Sprzętu" />
         <Label Grid.Column="0" 
                Grid.Row="2"
                FontSize="18"
-               Content="ID Klienta" 
-               Margin="14,0,0,0"/>
+               Content="ID Klienta" />
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="Data od" 
-               Margin="14,0,0,0"/>
+               Content="Data od" />
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
-               Content="Data do" 
-               Margin="14,0,0,0"/>
+               Content="Data do" />
 
         <TextBox x:Name="tB0"
                  Grid.Column="1"
@@ -86,6 +81,7 @@
                 Grid.Row="5" 
                 Grid.Column="1" 
                 Click="btn1_Click" 
-                Margin="175,0,0,0"/>
+                HorizontalAlignment="Right"
+                Width="75"/>
     </Grid>
 </Page>

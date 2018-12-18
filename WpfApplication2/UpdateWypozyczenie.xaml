@@ -12,9 +12,9 @@
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="300"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -84,8 +84,7 @@
                 FontSize="16"
                 Grid.Column="1"
                 Grid.Row="0"
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
                 Width="75" 
                 Height="33"
@@ -94,8 +93,7 @@
                 Content="Aktualizuj"
                 FontSize="16"
                 Grid.Column="1" 
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right" 
                 Grid.Row="5" 
                 VerticalAlignment="Top" 
                 Width="75" 

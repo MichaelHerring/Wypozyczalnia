@@ -12,9 +12,9 @@
     <Grid 
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="99"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -50,6 +50,9 @@
                 Grid.Row="2" 
                 Grid.Column="1" 
                 Click="btn1_Click" 
-                Margin="175,0,0,0" Height="33" VerticalAlignment="Top"/>
+                HorizontalAlignment="Right"
+                Width="75" 
+                Height="33" 
+                VerticalAlignment="Top"/>
     </Grid>
 </Page>

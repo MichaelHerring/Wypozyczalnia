@@ -12,9 +12,9 @@
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
-        Width="500" 
+        Width="475" 
         Height="300"
-        Margin="0 15 0 0">
+        Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -29,12 +29,11 @@
                Grid.Row="0"
                FontSize="18"
                Content="Wprowadź ID Kategorii"
-               Margin="14,0,0,0" FontWeight="Bold"/>
+               FontWeight="Bold"/>
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="Nazwa Kategorii" 
-               Margin="14,0,0,0"/>
+               Content="Nazwa Kategorii" />
 
         <TextBox x:Name="tB0"
                  Grid.Column="1"
@@ -52,8 +51,7 @@
                 FontSize="16"
                 Grid.Column="1"
                 Grid.Row="0"
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right" 
                 VerticalAlignment="Top" 
                 Width="75" 
                 Height="33"
@@ -62,8 +60,7 @@
                 Content="Aktualizuj"
                 FontSize="16"
                 Grid.Column="1" 
-                HorizontalAlignment="Left" 
-                Margin="175,0,0,0" 
+                HorizontalAlignment="Right" 
                 Grid.Row="2" 
                 VerticalAlignment="Top" 
                 Width="75" 
