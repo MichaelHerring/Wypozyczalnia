@@ -69,7 +69,8 @@
             <Grid>
                 <Button x:Name="Hamburger" 
                         Width="36" 
-                        Height="25" 
+                        Height="25"
+                        Background="Black"
                         HorizontalAlignment="Right" 
                         VerticalAlignment="Top" 
                         BorderThickness="0"
@@ -253,7 +254,7 @@
                     BorderThickness="0"
                     Click="btnRodzajUpdate_Click"/>
         </StackPanel>
-        
+
         <!--Frames, Search Panel, Message panel-->
         <Grid Margin="0 25 0 0">
             <Grid.ColumnDefinitions>
@@ -264,7 +265,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="140"></RowDefinition>
             </Grid.RowDefinitions>
-            
+
             <!--Frame 1-->
             <Frame x:Name="Container" 
                    Background="White"
@@ -317,6 +318,8 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Stretch" 
                    Grid.ColumnSpan="2"/>
+            <Image x:Name="ImageBulb" Source="Resources/bulb.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
+            <Image x:Name="ImageBulbBlack" Source="Resources/bulb-black.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
             <ScrollViewer x:Name="MessageViewer"
                        Margin="24,30,2,0"
                        Padding="2"

@@ -54,6 +54,22 @@ namespace WpfApplication2
         {
             MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
+
+            DoubleAnimation FadeIn = new DoubleAnimation();
+            FadeIn.From = 0;
+            FadeIn.To = 1;
+            FadeIn.Duration = TimeSpan.FromSeconds(1);
+
+            DoubleAnimation FadeOut = new DoubleAnimation();
+            FadeOut.From = 1;
+            FadeOut.To = 0;
+            FadeOut.Duration = TimeSpan.FromSeconds(1);
+
+            ImageBulbBlack.BeginAnimation(OpacityProperty, FadeOut);
+            ImageBulb.BeginAnimation(OpacityProperty, FadeIn);
+
+            ImageBulb.BeginAnimation(OpacityProperty, FadeOut);
+            ImageBulbBlack.BeginAnimation(OpacityProperty, FadeIn);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
