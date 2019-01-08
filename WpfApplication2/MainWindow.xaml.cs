@@ -75,7 +75,6 @@ namespace WpfApplication2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //animacja menu
-            btn1.Opacity = 0;
             btn2.Opacity = 0;
             btn3.Opacity = 0;
             btn4.Opacity = 0;
@@ -86,29 +85,21 @@ namespace WpfApplication2
             NavAnimation.From = 0;
             NavAnimation.To = 1;
             NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
-            btn1.BeginAnimation(OpacityProperty, NavAnimation);
-
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.6);
             btn2.BeginAnimation(OpacityProperty, NavAnimation);
 
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.8);
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.6);
             btn3.BeginAnimation(OpacityProperty, NavAnimation);
 
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(0.8);
             btn4.BeginAnimation(OpacityProperty, NavAnimation);
 
-            NavAnimation.BeginTime = TimeSpan.FromSeconds(1.2);
+            NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
             btn5.BeginAnimation(OpacityProperty, NavAnimation);
         }
 
        
 
         //Główne przyciski z menu
-        private void btn1_Click(object sender, RoutedEventArgs e)
-        {
-            Connect win = new Connect();
-            win.Show();
-        }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {

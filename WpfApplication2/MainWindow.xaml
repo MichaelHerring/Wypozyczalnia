@@ -26,53 +26,67 @@
         <!--Menu-->
         <DockPanel x:Name="Navigation" 
                    HorizontalAlignment="Stretch"  
-                   Height="25" 
+                   Height="30" 
                    LastChildFill="True" 
                    VerticalAlignment="Top" 
-                   Background="Black" >
-            <Button x:Name="btn1" 
-                    Width="85"
-                    Background="Black"
-                    BorderThickness="0"
-                    FontWeight="Bold"
-                    Click="btn1_Click">Connect</Button>
+                   Background="#191C1D" >
             <Button x:Name="btn2" 
-                    Width="85"
-                    Background="Black"
+                    Width="100"
+                    Margin="16 0 0 0"
+                    Background="#191C1D"
                     BorderThickness="0"
+                    FontSize="14"
                     FontWeight="Bold"
                     MouseEnter="btn2_MouseEnter"
                     Click="btn2_Click">Insert</Button>
             <Button x:Name="btn3" 
-                    Width="85"
-                    Background="Black"
+                    Width="100"
+                    Margin="0"
+                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
+                    FontSize="14"
                     MouseEnter="btn3_MouseEnter"
                     Click="btn3_Click" >Delete</Button>
             <Button x:Name="btn4" 
-                    Width="85"
-                    Background="Black"
+                    Width="100"
+                    Margin="0"
+                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
+                    FontSize="14"
                     MouseEnter="btn4_MouseEnter"
-                    Click="btn4_Click" 
-                    Height="25" >Tables</Button>
+                    Click="btn4_Click" >Tables</Button>
             <Button x:Name="btn5" 
-                    Width="85"
-                    Background="Black"
+                    Width="100"
+                    Margin="0"
+                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
+                    FontSize="14"
                     MouseEnter="btn5_MouseEnter"
-                    Click="btn5_Click" 
-                    Height="25" >Update</Button>
-            <Grid>
+                    Click="btn5_Click" >Update</Button>
+            <Grid >
+                <DockPanel LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 36 0">
+                    <Label Content="Tabela:" Foreground="White" Padding="8 6" />
+                    <ComboBox x:Name="ComboBoxTabela" Height="24" Width="100" DropDownClosed="ComboBoxTabela_DropDownClosed">
+                        <ComboBoxItem>Klient</ComboBoxItem>
+                        <ComboBoxItem>Sprzet</ComboBoxItem>
+                        <ComboBoxItem>Wypozyczenie</ComboBoxItem>
+                        <ComboBoxItem>Rodzaj_Sprzetu</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Kolumna:" Foreground="White" Padding="8 6"/>
+                    <ComboBox x:Name="ComboBoxKolumna" Height="24" Width="100"></ComboBox>
+                    <Label Content="Wartość:" Foreground="White" Padding="8 6"/>
+                    <TextBox x:Name="TextBoxWartosc" Height="24" MinWidth="90"  MaxWidth="110" Padding="2" KeyDown="TextBoxWartosc_KeyDown"/>
+                    <Button x:Name="btnWyszukaj" Content="Wyszukaj" Height="24" Width="72" Background="#FFE6E6E6" Foreground="Black" Click="btnWyszukaj_Click" ></Button>
+                </DockPanel>
                 <Button x:Name="Hamburger" 
                         Width="36" 
-                        Height="25"
-                        Background="Black"
+                        Height="30"
+                        Background="#191C1D"
                         HorizontalAlignment="Right" 
-                        VerticalAlignment="Top" 
+                        VerticalAlignment="Center" 
                         BorderThickness="0"
                         Click="Hamburger_Click">
                     <Grid>
@@ -107,7 +121,7 @@
                     Background="#FF858585"
                     Width="160" 
                     HorizontalAlignment="Right" 
-                    Margin="0 25 0 0"
+                    Margin="0 30 0 0"
                     Visibility="Hidden"
                     Panel.ZIndex="90">
             <Label Height="25" Width="55" Content="Raporty" FontWeight="Bold" />
@@ -119,144 +133,128 @@
 
         <!--Listy rozwijane-->
         <StackPanel x:Name="StackPanel1"
-                    Height="100" 
+                    Height="120" 
                     VerticalAlignment="Top" 
-                    Margin="85,25,0,0" 
+                    Margin="8,30,0,0" 
                     HorizontalAlignment="Left" 
-                    Width="85"
+                    Width="116"
                     Visibility="Hidden"
-                    Panel.ZIndex="100">
+                    Panel.ZIndex="100" >
 
             <Button x:Name="btnKlient" 
                     Content="Klient" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnKlient_Click"/>
             <Button x:Name="btnSprzet" 
                     Content="Sprzęt" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnSprzet_Click"/>
             <Button x:Name="btnWypozyczenie" 
-                    Content="Wypozyczenie" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Content="Wypożyczenie" 
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnWypozyczenie_Click"/>
             <Button x:Name="btnRodzaj" 
                     Content="Rodzaj Sprzętu" 
-                    Height="25"
-                    Width="85"
+                    Height="30"
                     BorderThickness="0"
                     Click="btnRodzaj_Click"/>
         </StackPanel>
         <StackPanel x:Name="StackPanel2"
-                    Height="100" 
+                    Height="120" 
                     VerticalAlignment="Top" 
-                    Margin="170,25,0,0" 
+                    Margin="108,30,0,0" 
                     HorizontalAlignment="Left" 
-                    Width="85"
+                    Width="116"
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
             <Button x:Name="btnKlientDel" 
                     Content="Klient" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0" 
+                    Height="30"
+                    BorderThickness="0 0 0 1" 
                     Click="btnKlientDel_Click"/>
             <Button x:Name="btnSprzetDel" 
                     Content="Sprzęt" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnSprzetDel_Click"/>
             <Button x:Name="btnWypozyczenieDel" 
-                    Content="Wypozyczenie" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Content="Wypożyczenie" 
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnWypozyczenieDel_Click"/>
             <Button x:Name="btnRodzajDel" 
                     Content="Rodzaj Sprzętu" 
-                    Height="25"
-                    Width="85"
+                    Height="30"
                     BorderThickness="0"
                     Click="btnRodzajDel_Click"/>
         </StackPanel>
         <StackPanel x:Name="StackPanel3"
-                    Height="100" 
+                    Height="120" 
                     VerticalAlignment="Top" 
-                    Margin="255,25,0,0" 
+                    Margin="208,30,0,0" 
                     HorizontalAlignment="Left" 
-                    Width="85"
+                    Width="116"
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
             <Button x:Name="TableBtn1" 
                     Content="Klient" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="TableBtn1_Click"/>
             <Button x:Name="TableBtn2" 
                     Content="Sprzęt" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="TableBtn2_Click"/>
             <Button x:Name="TableBtn3" 
-                    Content="Wypozyczenie" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Content="Wypożyczenie" 
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="TableBtn3_Click"/>
             <Button x:Name="TableBtn4" 
                     Content="Rodzaj Sprzętu" 
-                    Height="25"
-                    Width="85"
+                    Height="30"
                     BorderThickness="0"
                     Click="TableBtn4_Click"/>
         </StackPanel>
         <StackPanel x:Name="StackPanel4"
-                    Height="100" 
+                    Height="120" 
                     VerticalAlignment="Top" 
-                    Margin="340,25,0,0" 
+                    Margin="308,30,0,0" 
                     HorizontalAlignment="Left" 
-                    Width="85"
+                    Width="116"
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
             <Button x:Name="btnKlientUpdate" 
                     Content="Klient" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0" 
+                    Height="30"
+                    BorderThickness="0 0 0 1" 
                     Click="btnKlientUpdate_Click"/>
             <Button x:Name="btnSprzetUpdate" 
                     Content="Sprzęt" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnSprzetUpdate_Click"/>
             <Button x:Name="btnWypozyczenieUpdate" 
                     Content="Wypożyczenie" 
-                    Height="25"
-                    Width="85"
-                    BorderThickness="0"
+                    Height="30"
+                    BorderThickness="0 0 0 1"
                     Click="btnWypozyczenieUpdate_Click"/>
             <Button x:Name="btnRodzajUpdate" 
                     Content="Rodzaj Sprzętu" 
-                    Height="25"
-                    Width="85"
+                    Height="30"
                     BorderThickness="0"
                     Click="btnRodzajUpdate_Click"/>
         </StackPanel>
 
         <!--Frames, Search Panel, Message panel-->
-        <Grid Margin="0 25 0 0">
+        <Grid Margin="0 30 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="525"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -274,10 +272,10 @@
                    Grid.Column="0"
                    NavigationUIVisibility="Hidden"/>
             <!--Search panel-->
-            <Grid Grid.Column="1" Height="26" VerticalAlignment="Top" Background="Gray">
-                <DockPanel Margin="2" LastChildFill="True">
+            <Grid Grid.Column="1" Height="22" VerticalAlignment="Top" >
+                <!--DockPanel LastChildFill="True">
                     <Label Content="Tabela:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
-                    <ComboBox x:Name="ComboBoxTabela" Width="115" DropDownClosed="ComboBoxTabela_DropDownClosed">
+                    <ComboBox x:Name="ComboBoxTabela" Width="115" DropDownClosed="ComboBoxTabela_DropDownClosed" >
                         <ComboBoxItem>Klient</ComboBoxItem>
                         <ComboBoxItem>Sprzet</ComboBoxItem>
                         <ComboBoxItem>Wypozyczenie</ComboBoxItem>
@@ -289,7 +287,7 @@
                     <TextBox x:Name="TextBoxWartosc" Width="118" Padding="2" KeyDown="TextBoxWartosc_KeyDown"/>
                     <Button x:Name="btnWyszukaj" Content="Wyszukaj" Width="72" Background="#FFE6E6E6" Foreground="Black" Click="btnWyszukaj_Click" ></Button>
                     <Label Background="#FFE8E8E8" BorderThickness="1" BorderBrush="Gray"/>
-                </DockPanel>
+                </DockPanel-->
             </Grid>
             <!--Frame 2-->
             <Frame x:Name="Container2" 
@@ -298,7 +296,7 @@
                    BorderBrush="Black"
                    Grid.Column="1"
                    NavigationUIVisibility="Hidden"
-                   Margin="0,26,0,0"/>
+                   Margin="0"/>
 
             <!--Message panel-->
             <Label
