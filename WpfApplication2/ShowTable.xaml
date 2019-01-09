@@ -9,7 +9,7 @@
       Title="Table1"
       Loaded="Page_Loaded">
 
-    <Grid Background="White">
-        <DataGrid x:Name="DataGr"></DataGrid>
+    <Grid>
+        <DataGrid x:Name="DataGr" Background="#d5d6d2" IsReadOnly="True"></DataGrid>
     </Grid>
 </Page>

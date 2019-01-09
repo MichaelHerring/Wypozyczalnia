@@ -8,7 +8,7 @@
       d:DesignHeight="325" d:DesignWidth="525"
       Title="WynikiWyszukania" Loaded="Page_Loaded">
 
-    <Grid Background="White">
-        <DataGrid x:Name="DataGr"></DataGrid>
+    <Grid>
+        <DataGrid x:Name="DataGr" Background="#d5d6d2" IsReadOnly="True"></DataGrid>
     </Grid>
 </Page>

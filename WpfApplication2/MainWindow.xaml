@@ -9,14 +9,15 @@
         Height="700" Width="1050"        
         Loaded="Window_Loaded" 
         MouseDown="KliKniecie_w_oknie"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        Background="#d5d6d2">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#FF424242" />
+            <Setter Property="Background" Value="#353c3f" />
             <Setter Property="Foreground" Value="White" />
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Button.Foreground" Value="Black" />
+                    <Setter Property="Button.Foreground" Value="#ff8d3f" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -29,43 +30,43 @@
                    Height="30" 
                    LastChildFill="True" 
                    VerticalAlignment="Top" 
-                   Background="#191C1D" >
-            <Button x:Name="btn2" 
+                   Background="#353c3f" >
+            <Button x:Name="btn2"
+                    Content="Wstaw"
                     Width="100"
                     Margin="16 0 0 0"
-                    Background="#191C1D"
                     BorderThickness="0"
                     FontSize="14"
                     FontWeight="Bold"
                     MouseEnter="btn2_MouseEnter"
-                    Click="btn2_Click">Insert</Button>
-            <Button x:Name="btn3" 
+                    Click="btn2_Click"/>
+            <Button x:Name="btn3"
+                    Content="Usuń"
                     Width="100"
                     Margin="0"
-                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn3_MouseEnter"
-                    Click="btn3_Click" >Delete</Button>
-            <Button x:Name="btn4" 
+                    Click="btn3_Click" />
+            <Button x:Name="btn4"
+                    Content="Tabele"
                     Width="100"
                     Margin="0"
-                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn4_MouseEnter"
-                    Click="btn4_Click" >Tables</Button>
-            <Button x:Name="btn5" 
+                    Click="btn4_Click" />
+            <Button x:Name="btn5"
+                    Content="Aktualizuj"
                     Width="100"
                     Margin="0"
-                    Background="#191C1D"
                     BorderThickness="0"
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn5_MouseEnter"
-                    Click="btn5_Click" >Update</Button>
+                    Click="btn5_Click" />
             <Grid >
                 <DockPanel LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 36 0">
                     <Label Content="Tabela:" Foreground="White" Padding="8 6" />
@@ -86,7 +87,6 @@
                 <Button x:Name="Hamburger" 
                         Width="36" 
                         Height="30"
-                        Background="#191C1D"
                         HorizontalAlignment="Right" 
                         VerticalAlignment="Center" 
                         BorderThickness="0"
@@ -142,23 +142,23 @@
                     Width="116"
                     Visibility="Hidden"
                     Panel.ZIndex="100" >
-            <Rectangle Height="4" Width="116" Fill="Gray"/>
+            <Rectangle Height="4" Width="116" Fill="#ff8d3f"/>
             <Button x:Name="btnKlient" 
                     Content="Klient" 
                     Height="30"
                     BorderThickness="0 0 0 1"
                     Click="btnKlient_Click" />
-                <Button x:Name="btnSprzet" 
+            <Button x:Name="btnSprzet" 
                     Content="Sprzęt" 
                     Height="30"
                     BorderThickness="0 0 0 1"
                     Click="btnSprzet_Click"/>
-                <Button x:Name="btnWypozyczenie" 
+            <Button x:Name="btnWypozyczenie" 
                     Content="Wypożyczenie" 
                     Height="30"
                     BorderThickness="0 0 0 1"
                     Click="btnWypozyczenie_Click"/>
-                <Button x:Name="btnRodzaj" 
+            <Button x:Name="btnRodzaj" 
                     Content="Rodzaj Sprzętu" 
                     Height="30"
                     BorderThickness="0"
@@ -173,7 +173,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Width="116" Fill="Gray"/>
+            <Rectangle Height="4" Width="116" Fill="#ff8d3f"/>
             <Button x:Name="btnKlientDel" 
                     Content="Klient" 
                     Height="30"
@@ -204,7 +204,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Width="116" Fill="Gray"/>
+            <Rectangle Height="4" Width="116" Fill="#ff8d3f"/>
             <Button x:Name="TableBtn1" 
                     Content="Klient" 
                     Height="30"
@@ -235,7 +235,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Width="116" Fill="Gray"/>
+            <Rectangle Height="4" Width="116" Fill="#ff8d3f"/>
             <Button x:Name="btnKlientUpdate" 
                     Content="Klient" 
                     Height="30"
@@ -261,7 +261,8 @@
         <!--Frames, Search Panel, Message panel-->
         <Grid Margin="0 30 0 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="525"></ColumnDefinition>
+                <ColumnDefinition Width="65"></ColumnDefinition>
+                <ColumnDefinition Width="460"/>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -271,13 +272,12 @@
 
             <!--Frame 1-->
             <Frame x:Name="Container" 
-                   Background="White"
                    BorderThickness="1, 0, 1, 1"
                    BorderBrush="Black"
                    Grid.Column="0"
-                   NavigationUIVisibility="Hidden"/>
+                   NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
             <!--Search panel-->
-            <Grid Grid.Column="1" Height="22" VerticalAlignment="Top" >
+            <Grid Grid.Column="2" Height="22" VerticalAlignment="Top" >
                 <!--DockPanel LastChildFill="True">
                     <Label Content="Tabela:" BorderThickness="1" BorderBrush="Gray" Background="#FFE8E8E8" Padding="4 2"/>
                     <ComboBox x:Name="ComboBoxTabela" Width="115" DropDownClosed="ComboBoxTabela_DropDownClosed" >
@@ -296,31 +296,31 @@
             </Grid>
             <!--Frame 2-->
             <Frame x:Name="Container2" 
-                   Background="White"
                    BorderThickness="0, 0, 1, 1" 
                    BorderBrush="Black"
-                   Grid.Column="1"
+                   Grid.Column="2"
                    NavigationUIVisibility="Hidden"
                    Margin="0"/>
 
             <!--Message panel-->
             <Label
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Background="#FF424242"
+                Grid.ColumnSpan="3"
+                Background="#7f807e"
                 BorderThickness="2"
-                BorderBrush="Gray"/>
+                BorderBrush="#353c3f"/>
             <Label
                    Content="Notifications"
                    Padding="24 4"
                    FontSize="14"
-                   Background="Gray"
+                   Background="#353c3f"
+                   Foreground="White"
                    Grid.Row="1"
                    Margin="2,2,2,0"
                    Height="28"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Stretch" 
-                   Grid.ColumnSpan="2"/>
+                   Grid.ColumnSpan="3"/>
             <Image x:Name="ImageBulb" Source="Resources/bulb.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
             <Image x:Name="ImageBulbBlack" Source="Resources/bulb-black.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
             <ScrollViewer x:Name="MessageViewer"
@@ -333,8 +333,8 @@
                        VerticalAlignment="Top" 
                        Height="108" 
                        HorizontalAlignment="Stretch"
-                       Grid.ColumnSpan="2"
-                       Background="#FF424242" 
+                       Grid.ColumnSpan="3"
+                       Background="Transparent" 
                        Opacity="0.85"/>
         </Grid>
     </Grid>
