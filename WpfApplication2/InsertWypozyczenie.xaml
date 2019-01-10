@@ -136,6 +136,15 @@
                 Grid.Row="5" 
                 Grid.Column="1"
                 Margin="0 2"
-                Click="btn1_Click" />
+                Click="btn1_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>
