@@ -72,6 +72,8 @@ namespace WpfApplication2
             System.Media.SystemSounds.Beep.Play();
         }
 
+        DoubleAnimation BorderAnimation1;
+        DoubleAnimation BorderAnimation2;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //animacja menu
@@ -95,6 +97,18 @@ namespace WpfApplication2
 
             NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
             btn5.BeginAnimation(OpacityProperty, NavAnimation);
+
+            BorderAnimation1 = new DoubleAnimation();
+            //BorderAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
+            BorderAnimation1.From = 104;
+            BorderAnimation1.To = 116;
+            BorderAnimation1.Duration = TimeSpan.FromSeconds(0.25);
+
+            BorderAnimation2 = new DoubleAnimation();
+            //BorderAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
+            BorderAnimation2.From = 116;
+            BorderAnimation2.To = 104;
+            BorderAnimation2.Duration = TimeSpan.FromSeconds(0.25);
         }
 
        
@@ -181,6 +195,8 @@ namespace WpfApplication2
             czy_otwarta_druga = false;
             czy_otwarta_trzecia = false;
             czy_otwarta_czwarta = false;
+
+            Rectangle1.BeginAnimation(WidthProperty, BorderAnimation1);
         }
 
         private void btn3_MouseEnter(object sender, MouseEventArgs e)
@@ -193,6 +209,8 @@ namespace WpfApplication2
             czy_otwarta_druga = true;
             czy_otwarta_trzecia = false;
             czy_otwarta_czwarta = false;
+
+            Rectangle2.BeginAnimation(WidthProperty, BorderAnimation1);
         }
 
         private void btn4_MouseEnter(object sender, MouseEventArgs e)
@@ -205,6 +223,8 @@ namespace WpfApplication2
             czy_otwarta_druga = false;
             czy_otwarta_trzecia = true;
             czy_otwarta_czwarta = false;
+
+            Rectangle3.BeginAnimation(WidthProperty, BorderAnimation1);
         }
         private void btn5_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -216,6 +236,28 @@ namespace WpfApplication2
             czy_otwarta_druga = false;
             czy_otwarta_trzecia = false;
             czy_otwarta_czwarta = true;
+
+            Rectangle4.BeginAnimation(WidthProperty, BorderAnimation1);
+        }
+
+        private void btn2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Rectangle1.BeginAnimation(WidthProperty, BorderAnimation2);
+        }
+
+        private void btn3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Rectangle2.BeginAnimation(WidthProperty, BorderAnimation2);
+        }
+
+        private void btn4_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Rectangle3.BeginAnimation(WidthProperty, BorderAnimation2);
+        }
+
+        private void btn5_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Rectangle4.BeginAnimation(WidthProperty, BorderAnimation2);
         }
 
         //Przyciski do wyświetlania tabel
@@ -422,6 +464,6 @@ namespace WpfApplication2
             {
                 WyswietlKomunikat(exc.Message);
             }
-        }
+        }        
     }
 }

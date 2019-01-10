@@ -5,16 +5,63 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication2"
       mc:Ignorable="d" 
-      d:DesignHeight="325" d:DesignWidth="525"
+      d:DesignHeight="400" d:DesignWidth="525"
       Title="InsertSprzet"
-      Background="White"
+      Background="#d5d6d2"
       Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"  CornerRadius="15" Background="#ff8d3f" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFF99A58" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#ff8d3f" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="235" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="IsEditable" Value="True" />
+        </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.2"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Width="475" 
-        Height="231"
+        Height="350"
         Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -24,6 +71,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -55,51 +103,62 @@
                FontSize="18"
                Content="Męski/Damski (k; m; k/m)" />
 
+        <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="2" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="3" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="4" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="5" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        
         <TextBox x:Name="tB0"
                  Grid.Column="1"
                  Grid.Row="0"
-                 FontSize="22"
                  IsEnabled="False"
-                 Text="auto"
+                 Margin="16 5 16 5"
+                 Padding="2"
+                 Text="automatycznie"
                  />
         <ComboBox x:Name="cB1" 
                  Grid.Column="1"
                  Grid.Row="1"
                  FontSize="18"
-                 BorderThickness="1"
-                 Background="White"/>
+                 Margin="16 5 4 5"
+                 Padding="2"/>
         <ComboBox x:Name="cB2" 
                  Grid.Column="1"
                  Grid.Row="2"
                  FontSize="18"
-                 BorderThickness="1"/>
+                 Margin="16 5 4 5"
+                 Padding="2"/>
         <DatePicker x:Name="dP1" 
                  Grid.Column="1"
                  Grid.Row="3"
                  FontSize="18"
-                 BorderThickness="1"/>
+                 BorderThickness="0"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
         <TextBox x:Name="tB4" 
                  Grid.Column="1"
                  Grid.Row="4"
-                 FontSize="18"
-                 BorderThickness="1"/>
+                 Margin="16 5 16 5"
+                 Padding="2"/>
         <ComboBox x:Name="cB3" 
                  Grid.Column="1"
                  Grid.Row="5"
                  FontSize="18"
-                 BorderThickness="1">
+                 Margin="16 5 4 5"
+                 Padding="2">
             <ComboBoxItem>k</ComboBoxItem>
             <ComboBoxItem>m</ComboBoxItem>
             <ComboBoxItem>k/m</ComboBoxItem>
         </ComboBox>
 
-        <Button x:Name="btn1" 
-                Content="Insert" 
-                FontSize="16"
-                Grid.Row="7" 
-                Grid.Column="1" 
-                Click="btn1_Click"
-                HorizontalAlignment="Right"
-                Width="75"/>
+        <Button x:Name="btn1"
+                Style="{DynamicResource RoundedButtonStyle}"
+                Content="Wstaw" 
+                Grid.Row="6" 
+                Grid.Column="1"
+                Margin="0 2"
+                Click="btn1_Click"/>
     </Grid>
 </Page>

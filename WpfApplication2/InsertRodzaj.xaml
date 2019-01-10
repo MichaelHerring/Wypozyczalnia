@@ -5,15 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication2"
       mc:Ignorable="d" 
-      d:DesignHeight="325" d:DesignWidth="525"
+      d:DesignHeight="400" d:DesignWidth="525"
       Title="InsertRodzaj"
-      Background="White">
+      Background="#d5d6d2">
 
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"  CornerRadius="15" Background="#ff8d3f" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFF99A58" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#ff8d3f" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="235" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.2"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid 
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Width="475" 
-        Height="99"
+        Height="350"
         Margin="0 26 0 0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -23,6 +64,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" 
@@ -34,25 +76,30 @@
                FontSize="18"
                Content="Nazwa Kategorii" />
 
+        <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <TextBox x:Name="tB0"
                  Grid.Column="1"
                  Grid.Row="0"
-                 FontSize="22"
+                 FontSize="18"
                  IsEnabled="False"
-                 Text="auto" />
+                 Margin="16 5 16 5"
+                 Padding="2"
+                 Text="automatycznie" />
         <TextBox x:Name="tB1" 
                  Grid.Column="1"
                  Grid.Row="1"
-                 FontSize="18"/>
-        <Button x:Name="btn1" 
-                Content="Insert" 
-                FontSize="16"
+                 FontSize="18"
+                 IsEnabled="False"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <Button x:Name="btn1"
+                Style="{DynamicResource RoundedButtonStyle}"
+                Content="Wstaw"
                 Grid.Row="2" 
                 Grid.Column="1" 
                 Click="btn1_Click" 
-                HorizontalAlignment="Right"
-                Width="75" 
-                Height="33" 
-                VerticalAlignment="Top"/>
+                HorizontalAlignment="Center" 
+                Margin="0 2 0 2" />
     </Grid>
 </Page>

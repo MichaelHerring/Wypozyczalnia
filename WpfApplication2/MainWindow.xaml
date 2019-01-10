@@ -17,9 +17,23 @@
             <Setter Property="Foreground" Value="White" />
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Button.Foreground" Value="#ff8d3f" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Foreground" Value="#353c3f"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="4"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.5"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -39,6 +53,7 @@
                     FontSize="14"
                     FontWeight="Bold"
                     MouseEnter="btn2_MouseEnter"
+                    MouseLeave="btn2_MouseLeave"
                     Click="btn2_Click"/>
             <Button x:Name="btn3"
                     Content="Usuń"
@@ -48,6 +63,7 @@
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn3_MouseEnter"
+                    MouseLeave="btn3_MouseLeave"
                     Click="btn3_Click" />
             <Button x:Name="btn4"
                     Content="Tabele"
@@ -57,6 +73,7 @@
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn4_MouseEnter"
+                    MouseLeave="btn4_MouseLeave"
                     Click="btn4_Click" />
             <Button x:Name="btn5"
                     Content="Aktualizuj"
@@ -66,18 +83,30 @@
                     FontWeight="Bold"
                     FontSize="14"
                     MouseEnter="btn5_MouseEnter"
+                    MouseLeave="btn5_MouseLeave"
                     Click="btn5_Click" />
             <Grid >
                 <DockPanel LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 36 0">
                     <Label Content="Tabela:" Foreground="White" Padding="8 6" />
                     <ComboBox x:Name="ComboBoxTabela" Height="24" Width="100" DropDownClosed="ComboBoxTabela_DropDownClosed">
+                        <ComboBox.Effect>
+                            <DropShadowEffect BlurRadius="4"
+                                              Direction="330"
+                                              Opacity="0.3"/>
+                        </ComboBox.Effect>
                         <ComboBoxItem>Klient</ComboBoxItem>
                         <ComboBoxItem>Sprzet</ComboBoxItem>
                         <ComboBoxItem>Wypozyczenie</ComboBoxItem>
                         <ComboBoxItem>Rodzaj_Sprzetu</ComboBoxItem>
                     </ComboBox>
                     <Label Content="Kolumna:" Foreground="White" Padding="8 6"/>
-                    <ComboBox x:Name="ComboBoxKolumna" Height="24" Width="100"></ComboBox>
+                    <ComboBox x:Name="ComboBoxKolumna" Height="24" Width="100">
+                        <ComboBox.Effect>
+                            <DropShadowEffect BlurRadius="4"
+                                              Direction="330"
+                                              Opacity="0.3"/>
+                        </ComboBox.Effect>
+                    </ComboBox>
                     <Label Content="Wartość:" Foreground="White" Padding="8 6"/>
                     <TextBox x:Name="TextBoxWartosc" Height="24" Width="110" BorderThickness="1 1 0 1" Padding="2" KeyDown="TextBoxWartosc_KeyDown"/>
                     <Button x:Name="btnWyszukaj" Height="24" Width="24" Background="White" Foreground="Black" BorderThickness="0 1 1 1" BorderBrush="#FFABADB3" Click="btnWyszukaj_Click" >
@@ -142,7 +171,7 @@
                     Width="116"
                     Visibility="Hidden"
                     Panel.ZIndex="100" >
-            <Rectangle Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
+            <Rectangle x:Name="Rectangle1" Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
             <Button x:Name="btnKlient" 
                     Content="Klient" 
                     Height="30"
@@ -173,7 +202,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
+            <Rectangle x:Name="Rectangle2" Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
             <Button x:Name="btnKlientDel" 
                     Content="Klient" 
                     Height="30"
@@ -204,7 +233,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
+            <Rectangle x:Name="Rectangle3" Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
             <Button x:Name="TableBtn1" 
                     Content="Klient" 
                     Height="30"
@@ -235,7 +264,7 @@
                     Visibility="Hidden"
                     Panel.ZIndex="100"
                     >
-            <Rectangle Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
+            <Rectangle x:Name="Rectangle4" Height="4" Fill="#ff8d3f" Width="104" RadiusY="2" RadiusX="2"/>
             <Button x:Name="btnKlientUpdate" 
                     Content="Klient" 
                     Height="30"
@@ -293,7 +322,7 @@
                 BorderThickness="2"
                 BorderBrush="#353c3f"/>
             <Label
-                   Content="Notifications"
+                   Content="Powiadomienia"
                    Padding="24 4"
                    FontSize="14"
                    Background="#353c3f"

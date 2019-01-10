@@ -27,9 +27,26 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="235" />
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.2"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Page.Resources>
     <Grid
@@ -101,7 +118,7 @@
                  Grid.Row="0"
                  FontSize="18"
                  IsEnabled="False"
-                 Text="auto"
+                 Text="automatycznie"
                  Margin="16 5 16 5"
                  Padding="2"
                  />
@@ -123,7 +140,7 @@
                  FontSize="18"
                  BorderThickness="0"
                  BorderBrush="#FFF0F0F0"
-                 Margin="16 4 16 4" 
+                 Margin="16 5 16 5" 
                  Padding="2"/>
         <TextBox x:Name="tB4" 
                  Grid.Column="1"
@@ -145,15 +162,20 @@
                  Padding="2"/>
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
-                Foreground="White"
-                FontWeight="Bold"
                 Content="Wstaw" 
-                FontSize="18"
                 Grid.Row="7" 
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
-                Width="235"
                 Margin="0 2 0 2"
-                Click="btn1_Click"/>
+                Click="btn1_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>
