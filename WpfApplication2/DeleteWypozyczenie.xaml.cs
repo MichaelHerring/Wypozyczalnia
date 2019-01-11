@@ -37,6 +37,7 @@ namespace WpfApplication2
         {
             InitializeComponent();
         }
+
         public DeleteWypozyczenie(SqlConnection connection)
         {
             InitializeComponent();
@@ -59,13 +60,14 @@ namespace WpfApplication2
                     Tb_DataOD.Text = reader.GetDateTime(3).ToString();
                     Tb_DataDO.Text = reader.GetDateTime(4).ToString();
                     reader.Close();
-
-
-
                 }
                 catch (Exception exc)
                 {
                     wyslaneInfo(exc.Message);
+                    Tb_IDKlienta.Text = "";
+                    Tb_IDSprzetu.Text = "";
+                    Tb_DataOD.Text = "";
+                    Tb_DataDO.Text = "";
                 }
                 finally
                 {
@@ -73,19 +75,16 @@ namespace WpfApplication2
                     {
                         reader.Close();
                     }
-
                 }
             }
-            catch (Exception x)
+            catch (Exception exc)
             {
-                wyslaneInfo(x.Message);
+                wyslaneInfo(exc.Message);
             }
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ClickCount == 1)
-            {
                 if (MessageBox.Show("Czy na pewno chcesz usunąć ten rekord?", "Uwaga", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     try
@@ -95,11 +94,11 @@ namespace WpfApplication2
                         delcmd.Parameters.AddWithValue("@ID", Tb_Wypozyczenie.Text);
                         i = delcmd.ExecuteNonQuery();
                         Tb_IDSprzetu.Text = "";
-                        Tb_IDKlienta.Text= "";
+                        Tb_IDKlienta.Text = "";
                         Tb_DataOD.Text = "";
                         Tb_DataDO.Text = "";
-                        Tb_Wypozyczenie.Text= "";
-                        
+                        Tb_Wypozyczenie.Text = "";
+
 
                         if (i != 0)
                         {
@@ -118,7 +117,6 @@ namespace WpfApplication2
                         wyslaneInfo(exc.Message);
                     }
                 }
-            }
         }
     }
 }

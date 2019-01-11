@@ -5,36 +5,122 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication2"
       mc:Ignorable="d" 
-      d:DesignHeight="325" d:DesignWidth="525"
+      d:DesignHeight="400" d:DesignWidth="525"
       Title="DeleteRodzajSprzetu"
-      Background="White">
-
+      Background="#d5d6d2">
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"  CornerRadius="15" Background="#ff8d3f" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFF99A58" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#ff8d3f" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="235" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.2"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Width="475" 
-        Height="300"
+        Height="350"
         Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Name="dd" Content="Wprowadz ID Kategorii:" FontWeight="Bold" FontSize="18" Grid.Column="0" Grid.Row="0"/>
-        <Label Name="xd" Content="Nazwa Kategorii:" Grid.Column="0" FontSize="18" Grid.Row="1"/>
+        <Label Name="dd" Content="Wprowadź ID Kategorii:" FontWeight="Bold" FontSize="18" Grid.Column="0" Grid.Row="0"/>
+        <Label Name="xd" Content="Nazwa Kategorii" Grid.Column="0" FontSize="18" Grid.Row="1"/>
 
-        <TextBox Name="TBID" Grid.Column="1" Grid.Row="0" FontSize="18" />
+        <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 100 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <TextBox x:Name="TBID"
+                 Grid.Column="1"
+                 Grid.Row="0"
+                 FontSize="18"
+                 Margin="16 5 116 5"
+                 Padding="2"
+                 />
+        <Button x:Name="btn_Pokaz"
+                Style="{DynamicResource RoundedButtonStyle}"
+                Content="Pokaż"
+                FontSize="16"
+                Grid.Column="1"
+                Grid.Row="0"
+                HorizontalAlignment="Right" 
+                Width="96"
+                Margin="2 2 0 2"
+                Click="btn_Pokaz_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
+        <TextBox x:Name="TBTEXT" 
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 FontSize="18"
+                 Margin="16 5 16 5" 
+                 Padding="2"
+                 IsEnabled="False"/>
 
-        <Button Name="btn_Pokaz" Content="Pokaż" FontSize="16" Grid.Column="1" HorizontalAlignment="Right" Width="75" Click="btn_Pokaz_Click"/>
-
-        <TextBox Name="TBTEXT" IsEnabled="False" Grid.Column="1" Grid.Row="1" />
-
-        <Image MouseDown="Image_MouseDown" HorizontalAlignment="Left" Height="49" Margin="186,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="54" Source="Resources/smietnik.png" RenderTransformOrigin="-0.185,0.414" Grid.Column="1" Stretch="Fill"/>
-        <Button x:Name="Usun_btn" Content="Usuń" Grid.Column="1" HorizontalAlignment="Right" Margin="0,59,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Usun_btn_Click" Height="27"/>
+        <Button x:Name="btn_Usun" 
+                Style="{DynamicResource RoundedButtonStyle}" 
+                Content="Usuń" 
+                Grid.Row="2" 
+                Grid.Column="1" 
+                HorizontalAlignment="Center"
+                Margin="0 2 0 2"
+                Click="btn_Usun_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>

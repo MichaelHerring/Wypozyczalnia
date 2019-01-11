@@ -39,14 +39,14 @@ namespace WpfApplication2
         {
             InitializeComponent();
             this.connection = conn;
-            DeleteKlient.wyslaneInfo += WyswietlKomunikat;
             InsertKlient.wyslaneInfo += WyswietlKomunikat;
             InsertRodzaj.wyslaneInfo += WyswietlKomunikat;
             InsertSprzet.wyslaneInfo += WyswietlKomunikat;
+            InsertWypozyczenie.wyslaneInfo += WyswietlKomunikat;
+            DeleteKlient.wyslaneInfo += WyswietlKomunikat;
             DeleteSprzet.wyslaneInfo += WyswietlKomunikat;
             DeleteRodzajSprzetu.wyslaneInfo += WyswietlKomunikat;
-            //DeleteRodzajSprzetu.wyslanaliczba += WyswietlKomunikaty;
-            InsertWypozyczenie.wyslaneInfo += WyswietlKomunikat;
+            DeleteWypozyczenie.wyslaneInfo += WyswietlKomunikat;
         } 
         
         //przekazywanie wiadomości       

@@ -53,23 +53,25 @@ namespace WpfApplication2
                 try
                 {
                     cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@ID", Tb_Sprzet.Text);
+                    cmd.Parameters.AddWithValue("@ID", Tb_ID.Text);
                     reader = cmd.ExecuteReader();
                     reader.Read();
 
                     Tb_Kategoria.Text = reader.GetInt16(1).ToString();
-                    Tb_Nazwa.Text = reader.GetString(2);
+                    Tb_Sprzet.Text = reader.GetString(2);
                     Tb_Data.Text = reader.GetSqlDateTime(3).ToString();
                     Tb_Opis.Text = reader.GetString(4);
                     Tb_Plec.Text = reader.GetString(5);
                     reader.Close();
-
-
-
                 }
                 catch(Exception exc)
                 {
                     wyslaneInfo(exc.Message);
+                    Tb_Kategoria.Text = "";
+                    Tb_Sprzet.Text = "";
+                    Tb_Data.Text = "";
+                    Tb_Opis.Text = "";
+                    Tb_Plec.Text = "";
                 }
                 finally
                 {
@@ -86,10 +88,8 @@ namespace WpfApplication2
             }
         }
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ClickCount == 1)
-            {
                 if (MessageBox.Show("Czy na pewno chcesz usunąć ten rekord?", "Uwaga", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     try
@@ -100,7 +100,7 @@ namespace WpfApplication2
                         i = delcmd.ExecuteNonQuery();
                         Tb_Sprzet.Text = "";
                         Tb_Kategoria.Text = "";
-                        Tb_Nazwa.Text = "";
+                        Tb_Sprzet.Text = "";
                         Tb_Opis.Text = "";
                         Tb_Data.Text = "";
                         Tb_Plec.Text = "";
@@ -122,7 +122,6 @@ namespace WpfApplication2
                         wyslaneInfo(exc.Message);
                     }
                 }
-            }
         }
     }
 }

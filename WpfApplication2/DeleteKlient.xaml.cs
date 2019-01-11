@@ -43,8 +43,7 @@ namespace WpfApplication2
         public DeleteKlient(SqlConnection conn)
         {
             InitializeComponent();
-            this.connection = conn;
-            
+            this.connection = conn;            
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
@@ -69,6 +68,12 @@ namespace WpfApplication2
                 {
                     //MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
+                    tB1.Text = "";
+                    tB2.Text = "";
+                    tB3.Text = "";
+                    tB4.Text = "";
+                    tB5.Text = "";
+                    tB6.Text = "";
                 }
                 finally
                 {
@@ -115,7 +120,6 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
                 }
             }

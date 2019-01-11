@@ -64,6 +64,7 @@ namespace WpfApplication2
                 catch(Exception exc)
                 {
                     wyslaneInfo(exc.Message);
+                    TBTEXT.Text = "";
                 }
                 finally
                 {
@@ -71,9 +72,7 @@ namespace WpfApplication2
                     {
                         reader.Close(); //zamknięcie readera jeśli wystąpi błąd
                     }
-
-                }
-                
+                }                
             }
             catch (Exception exc)
             {
@@ -82,7 +81,7 @@ namespace WpfApplication2
             }
         }
 
-        private void Usun_btn_Click(object sender, RoutedEventArgs e)
+        private void btn_Usun_Click(object sender, RoutedEventArgs e)
         {
             if(MessageBox.Show("Czy na pewno chcesz usunąć ten rekord?","Uwaga",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
             {
@@ -109,18 +108,7 @@ namespace WpfApplication2
                 {
                     wyslaneInfo(exc.Message);
                 }
-            }
-            
-
-            
-        }
-
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(e.ClickCount==1)
-            {
-                MessageBox.Show("Usunięto! No dobra to tylko napis, nic nie usunieto");
-            }
+            }            
         }
     }
 }
