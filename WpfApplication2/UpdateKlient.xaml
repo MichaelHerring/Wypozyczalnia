@@ -5,15 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication2"
       mc:Ignorable="d" 
-      d:DesignHeight="325" d:DesignWidth="525"
+      d:DesignHeight="400" d:DesignWidth="525"
       Title="UpdateKlient"
-      Background="White">
+      Background="#d5d6d2">
 
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"  CornerRadius="15" Background="#ff8d3f" BorderThickness="1" Padding="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FFF99A58" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#ff8d3f" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="235" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect 
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.2"
+                        BlurRadius="4">
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid
         HorizontalAlignment="Center"
         VerticalAlignment="Top"
         Width="475" 
-        Height="300"
+        Height="350"
         Margin="0 26 0 0">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -23,7 +64,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -33,87 +75,124 @@
         <Label Grid.Column="0" 
                Grid.Row="0"
                FontSize="18"
-               Content="Wprowadź ID Klienta"
+               Content="Wprowadź ID Klienta:" 
+               Foreground="Black"
                FontWeight="Bold"/>
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="Imię" />
+               Content="Imię" 
+               Foreground="Black"/>
         <Label Grid.Column="0" 
                Grid.Row="2"
                FontSize="18"
-               Content="Nazwisko" />
+               Content="Nazwisko" 
+               Foreground="Black"/>
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="DataUrodzenia (rrrr-mm-dd)" />
+               Content="Data Urodzenia" 
+               Foreground="Black"/>
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
-               Content="Telefon" />
+               Content="Telefon" 
+               Foreground="Black"/>
         <Label Grid.Column="0" 
                Grid.Row="5"
                FontSize="18"
-               Content="Miasto" />
+               Content="Miasto" 
+               Foreground="Black"/>
         <Label Grid.Column="0" 
                Grid.Row="6"
                FontSize="18"
-               Content="Kraj" />
-
+               Content="Kraj" 
+               Foreground="Black"/>
+        <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 100 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="2" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="3" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="4" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="5" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="6" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <TextBox x:Name="tB0"
                  Grid.Column="1"
                  Grid.Row="0"
-                 FontSize="22" Margin="0,0,75,0"
+                 FontSize="18"
+                 Margin="16 5 116 5"
+                 Padding="2"
                  />
-        <TextBox x:Name="tB1" 
-                 Grid.Column="1"
-                 Grid.Row="1"
-                 FontSize="18"
-                 BorderThickness="1"/>
-        <TextBox x:Name="tB2" 
-                 Grid.Column="1"
-                 Grid.Row="2"
-                 FontSize="18"
-                 BorderThickness="1"/>
-        <TextBox x:Name="tB3" 
-                 Grid.Column="1"
-                 Grid.Row="3"
-                 FontSize="18"
-                 BorderThickness="1"/>
-        <TextBox x:Name="tB4" 
-                 Grid.Column="1"
-                 Grid.Row="4"
-                 FontSize="18"
-                 BorderThickness="1" />
-        <TextBox x:Name="tB5" 
-                 Grid.Column="1"
-                 Grid.Row="5"
-                 FontSize="18"
-                 BorderThickness="1"/>
-        <TextBox x:Name="tB6" 
-                 Grid.Column="1"
-                 Grid.Row="6"
-                 FontSize="18"
-                 BorderThickness="1"/>
-        <Button x:Name="btn1" 
+        <Button x:Name="btn1"
+                Style="{DynamicResource RoundedButtonStyle}"
                 Content="Pokaż"
                 FontSize="16"
                 Grid.Column="1"
                 Grid.Row="0"
-                HorizontalAlignment="Right"  
-                VerticalAlignment="Top" 
-                Width="75" 
-                Height="33"
-                Click="btn1_Click"/>
-        <Button x:Name="btn2" 
-                Content="Aktualizuj"
-                FontSize="16"
-                Grid.Column="1" 
                 HorizontalAlignment="Right" 
+                Width="96"
+                Margin="2 2 0 2"
+                Click="btn1_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
+        <TextBox x:Name="tB1" 
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 FontSize="18"
+                 Margin="16 5 16 5" 
+                 Padding="2"/>
+        <TextBox x:Name="tB2" 
+                 Grid.Column="1"
+                 Grid.Row="2"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <TextBox x:Name="tB3" 
+                 Grid.Column="1"
+                 Grid.Row="3"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <TextBox x:Name="tB4" 
+                 Grid.Column="1"
+                 Grid.Row="4"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <TextBox x:Name="tB5" 
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <TextBox x:Name="tB6"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
+        <Button x:Name="btn2"
+                Style="{DynamicResource RoundedButtonStyle}"
+                Content="Aktualizuj" 
                 Grid.Row="7" 
-                VerticalAlignment="Top" 
-                Width="75" 
-                Height="36" 
-                Click="btn2_Click"/>
+                Grid.Column="1" 
+                HorizontalAlignment="Center"
+                Margin="0 2 0 2"
+                Click="btn2_Click">
+            <Button.Effect>
+                <DropShadowEffect
+                     ShadowDepth="4"
+                     Direction="330"
+                     Color="Black"
+                     Opacity="0.2"
+                     BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>
