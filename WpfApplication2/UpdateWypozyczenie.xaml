@@ -89,6 +89,7 @@
                  FontSize="18"
                  Margin="16 5 116 5"
                  Padding="2"
+                 TextChanged="Tb_Wypozyczenie_TextChanged"
                  />
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
@@ -140,6 +141,7 @@
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
                 Margin="0 2 0 2"
+                IsEnabled="False"
                 Click="btn2_Click">
             <Button.Effect>
                 <DropShadowEffect
@@ -149,12 +151,6 @@
                      Opacity="0.2"
                      BlurRadius="4"/>
             </Button.Effect>
-            <Button.ToolTip>
-                <StackPanel>
-                    <Label FontWeight="Bold" Content="Naciśnij przycisk aby usunąć rekord" Foreground="Black"/>
-                    <TextBlock Text="Usuniecie danej z bazy" Foreground="Black"/>
-                </StackPanel>
-            </Button.ToolTip>
         </Button>
     </Grid>
 </Page>

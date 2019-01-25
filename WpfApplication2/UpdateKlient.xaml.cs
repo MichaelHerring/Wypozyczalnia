@@ -66,6 +66,7 @@ namespace WpfApplication2
                 catch (Exception exc)
                 {
                     //MessageBox.Show(exc.Message);
+                    btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     tB1.Text = "";
                     tB2.Text = "";
