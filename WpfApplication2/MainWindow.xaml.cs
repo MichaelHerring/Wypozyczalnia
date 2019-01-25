@@ -47,6 +47,10 @@ namespace WpfApplication2
             DeleteSprzet.wyslaneInfo += WyswietlKomunikat;
             DeleteRodzajSprzetu.wyslaneInfo += WyswietlKomunikat;
             DeleteWypozyczenie.wyslaneInfo += WyswietlKomunikat;
+            UpdateKlient.wyslaneInfo += WyswietlKomunikat;
+            UpdateSprzet.wyslaneInfo += WyswietlKomunikat;
+            UpdateRodzaj.wyslaneInfo += WyswietlKomunikat;
+            UpdateWypozyczenie.wyslaneInfo += WyswietlKomunikat;
         } 
         
         //przekazywanie wiadomości       
@@ -351,28 +355,28 @@ namespace WpfApplication2
         //Przyciski do wyswietlania formularzy do updatowania konkretnych tabel
         private void btnKlientUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Container.Content = new UpdateKlient();
+            Container.Content = new UpdateKlient(connection);
             StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_czwarta = false;
         }
 
         private void btnSprzetUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Container.Content = new UpdateSprzet();
+            Container.Content = new UpdateSprzet(connection);
             StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_czwarta = false;
         }
 
         private void btnWypozyczenieUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Container.Content = new UpdateWypozyczenie();
+            Container.Content = new UpdateWypozyczenie(connection);
             StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_czwarta = false;
         }
 
         private void btnRodzajUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Container.Content = new UpdateRodzaj();
+            Container.Content = new UpdateRodzaj(connection);
             StackPanel4.Visibility = Visibility.Hidden;
             czy_otwarta_czwarta = false;
         }

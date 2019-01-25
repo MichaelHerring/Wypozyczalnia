@@ -92,6 +92,7 @@
                  FontSize="18"
                  Margin="16 5 116 5"
                  Padding="2"
+                 TextChanged="Tb_ID_TextChanged"
                  />
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"

@@ -121,6 +121,7 @@
                  FontSize="18"
                  Margin="16 5 116 5"
                  Padding="2"
+                 TextChanged="tB0_TextChanged"
                  />
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
@@ -184,7 +185,8 @@
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
                 Margin="0 2 0 2"
-                Click="btn2_Click">
+                Click="btn2_Click"
+                IsEnabled="False">
             <Button.Effect>
                 <DropShadowEffect
                      ShadowDepth="4"
