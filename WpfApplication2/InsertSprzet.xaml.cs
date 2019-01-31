@@ -23,7 +23,7 @@ namespace WpfApplication2
     {
         SqlConnection connection;
 
-        string query = "insert into Sprzet values(@idKat, @nazwa, @data, @opis, @md)";
+        string query = "insert into Sprzet values(@idKat, @nazwa, @data, @opis, @md, @cena)";
         SqlCommand command;
 
         string fillID = "select IDKategorii from Rodzaj_Sprzetu order by IDKategorii";
@@ -87,7 +87,7 @@ namespace WpfApplication2
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            if (cB1.Text == "" || cB2.Text == "" || dP1.Text == "" || tB4.Text == "" || cB3.Text == "")
+            if (cB1.Text == "" || cB2.Text == "" || dP1.Text == "" || tB4.Text == "" || cB3.Text == "" || tB5.Text == "")
             {
                 //MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
                 wyslaneInfo("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.");
@@ -100,6 +100,7 @@ namespace WpfApplication2
                 command.Parameters.AddWithValue("@data", dP1.Text);
                 command.Parameters.AddWithValue("@opis", tB4.Text);
                 command.Parameters.AddWithValue("@md", cB3.Text);
+                command.Parameters.AddWithValue("@cena", tB5.Text);
 
                 try
                 {

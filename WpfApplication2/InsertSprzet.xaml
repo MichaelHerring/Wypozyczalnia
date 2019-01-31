@@ -71,7 +71,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -93,7 +94,7 @@
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="Data Zakupu (rrrr-mm-dd)" />
+               Content="Data Zakupu" />
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
@@ -101,7 +102,11 @@
         <Label Grid.Column="0" 
                Grid.Row="5"
                FontSize="18"
-               Content="Męski/Damski (k; m; k/m)" />
+               Content="Męski/Damski" />
+        <Label Content="Cena za godzinę"  
+               FontSize="18" 
+               Grid.Column="0" 
+               Grid.Row="6"/>
 
         <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
@@ -109,6 +114,7 @@
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="3" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="4" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="5" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="6" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         
         <TextBox x:Name="tB0"
                  Grid.Column="1"
@@ -152,11 +158,16 @@
             <ComboBoxItem>m</ComboBoxItem>
             <ComboBoxItem>k/m</ComboBoxItem>
         </ComboBox>
-
+        <TextBox x:Name="tB5" 
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"/>
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
-                Content="Wstaw" 
-                Grid.Row="6" 
+                Content="Dodaj" 
+                Grid.Row="7" 
                 Grid.Column="1"
                 Margin="0 2"
                 Click="btn1_Click">

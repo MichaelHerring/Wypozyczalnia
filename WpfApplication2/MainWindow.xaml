@@ -46,7 +46,7 @@
                    VerticalAlignment="Top" 
                    Background="#353c3f" >
             <Button x:Name="btn2"
-                    Content="Wstaw"
+                    Content="Dodaj"
                     Width="100"
                     Margin="16 0 0 0"
                     BorderThickness="0"
@@ -66,7 +66,7 @@
                     MouseLeave="btn3_MouseLeave"
                     Click="btn3_Click" />
             <Button x:Name="btn4"
-                    Content="Tabele"
+                    Content="Wyświetl"
                     Width="100"
                     Margin="0"
                     BorderThickness="0"
@@ -85,8 +85,8 @@
                     MouseEnter="btn5_MouseEnter"
                     MouseLeave="btn5_MouseLeave"
                     Click="btn5_Click" />
-            <Grid >
-                <DockPanel LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 36 0">
+            <Grid>
+                <DockPanel x:Name="SearchPanel" LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 46 0">
                     <Label Content="Tabela:" Foreground="White" Padding="8 6" />
                     <ComboBox x:Name="ComboBoxTabela" Height="24" Width="100" DropDownClosed="ComboBoxTabela_DropDownClosed">
                         <ComboBox.Effect>
@@ -150,11 +150,18 @@
         <!--Panel boczny-->
         <StackPanel x:Name="SideStackPannel" 
                     Background="#FF858585"
-                    Width="160" 
+                    Width="240" 
                     HorizontalAlignment="Right" 
                     Margin="0 30 0 0"
                     Visibility="Hidden"
                     Panel.ZIndex="90">
+            <StackPanel.Effect>
+                <DropShadowEffect Direction="180" 
+                                  Color="Gray"
+                                  Opacity="0.4"
+                                  BlurRadius="8"
+                                  ShadowDepth="3"/>
+            </StackPanel.Effect>
             <Label Height="25" Width="55" Content="Raporty" FontWeight="Bold" />
             <Button Height="25" Background="#FF858585" Content="Raport 1" />
             <Button Height="25" Background="#FF858585" Content="Raport 2" />

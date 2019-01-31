@@ -60,7 +60,6 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     TBTEXT.Text = "";
@@ -75,25 +74,31 @@ namespace WpfApplication2
             }
             catch (Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            update = "update Rodzaj_Sprzetu set Nazwa_Kategorii = @nazwa where IDKategorii = @ID";
-            updateCommand = new SqlCommand(update, connection);
-            updateCommand.Parameters.AddWithValue("@ID", TBID.Text);
-            updateCommand.Parameters.AddWithValue("@nazwa", TBTEXT.Text);
-            if (TBID.Text != String.Empty)
+            try
             {
-                updateCommand.ExecuteNonQuery();
-                wyslaneInfo("Zaktualizowano rekord");
+                update = "update Rodzaj_Sprzetu set Nazwa_Kategorii = @nazwa where IDKategorii = @ID";
+                updateCommand = new SqlCommand(update, connection);
+                updateCommand.Parameters.AddWithValue("@ID", TBID.Text);
+                updateCommand.Parameters.AddWithValue("@nazwa", TBTEXT.Text);
+                if (TBID.Text != String.Empty)
+                {
+                    updateCommand.ExecuteNonQuery();
+                    wyslaneInfo($"Zaktualizowano rekord o numerze ID = {TBID.Text} w tabeli Rodzaj Sprzetu.");
+                }
+                else
+                {
+                    wyslaneInfo("Wprowadź ID");
+                }
             }
-            else
+            catch (Exception exc)
             {
-                wyslaneInfo("Wprowadź ID");
+                wyslaneInfo(exc.Message);
             }
         }
 

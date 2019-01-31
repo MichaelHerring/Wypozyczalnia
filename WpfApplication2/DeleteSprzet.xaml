@@ -78,6 +78,7 @@
         <Label Content="Data Zakupu"  FontSize="18" Grid.Column="0" Grid.Row="3"/>
         <Label Content="Opis"  FontSize="18" Grid.Column="0" Grid.Row="4"/>
         <Label Content="Męski/Damski"  FontSize="18" Grid.Column="0" Grid.Row="5"/>
+        <Label Content="Cena za godzinę"  FontSize="18" Grid.Column="0" Grid.Row="6"/>
 
         <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 100 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
@@ -85,12 +86,14 @@
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="3" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="4" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="5" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="6" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <TextBox x:Name="Tb_ID"
                  Grid.Column="1"
                  Grid.Row="0"
                  FontSize="18"
                  Margin="16 5 116 5"
                  Padding="2"
+                 TextChanged="Tb_ID_TextChanged"
                  />
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
@@ -146,13 +149,21 @@
                  Margin="16 5 16 5"
                  Padding="2"
                  IsEnabled="False"/>
+        <TextBox x:Name="Tb_Cena" 
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 FontSize="18"
+                 Margin="16 5 16 5"
+                 Padding="2"
+                 IsEnabled="False"/>
         <Button x:Name="btn2"
                 Style="{DynamicResource RoundedButtonStyle}"
                 Content="Usuń" 
-                Grid.Row="6" 
+                Grid.Row="7" 
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
                 Margin="0 2 0 2"
+                IsEnabled="False"
                 Click="btn2_Click">
             <Button.Effect>
                 <DropShadowEffect

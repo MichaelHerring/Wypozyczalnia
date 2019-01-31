@@ -27,20 +27,12 @@ namespace WpfApplication2
         public Connect()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                btn2.IsEnabled = true;
-                btn1.IsEnabled = false;
-            }
-            else if (connection.State == System.Data.ConnectionState.Closed)
-            {
-                btn1.IsEnabled = true;
-                btn2.IsEnabled = false;
-            }
+
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
@@ -58,7 +50,6 @@ namespace WpfApplication2
                 builder.Password = passwordBox.Password;
             }
 
-            //connection = new SqlConnection(builder.ConnectionString);
             connection.ConnectionString = builder.ConnectionString;
 
             try
@@ -77,9 +68,6 @@ namespace WpfApplication2
 
             if (connection.State == System.Data.ConnectionState.Open)
             {
-                //MessageBox.Show("Połączono");
-                btn2.IsEnabled = true;
-                btn1.IsEnabled = false;
                 tB1.Text = "";
                 passwordBox.Clear();
                 chB1.IsChecked = false;
@@ -89,25 +77,14 @@ namespace WpfApplication2
             }
         }
 
-        private void btn2_Click(object sender, RoutedEventArgs e)
+        private void tB1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
-                connection.Close();
-                builder.IntegratedSecurity = false;
-                builder.UserID = "";
-                builder.Password = "";
-                tB1.Text = "";
-                passwordBox.Clear();
-                chB1.IsChecked = false;
-                MessageBox.Show("Rozłączono");
-                btn1.IsEnabled = true;
-                btn2.IsEnabled = false;
-            }
-            catch (SqlException exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            tB1.Background = Brushes.White;
+        }
+
+        private void passwordBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            passwordBox.Background = Brushes.White;
         }
     }
 }

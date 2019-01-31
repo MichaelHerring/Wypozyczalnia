@@ -63,7 +63,6 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     Tb_IDSprzetu.Text = "";
@@ -81,28 +80,34 @@ namespace WpfApplication2
             }
             catch (Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            update = "update Wypozyczenie set IDSprzetu = @sprzet, IDKlienta = @klient, Data_Od = @dataOd, Data_Do = @dataDo where IDWypozyczenia = @ID";
-            updateCommand = new SqlCommand(update, connection);
-            updateCommand.Parameters.AddWithValue("@ID", Tb_Wypozyczenie.Text);
-            updateCommand.Parameters.AddWithValue("@sprzet", Tb_IDSprzetu.Text);
-            updateCommand.Parameters.AddWithValue("@klient", Tb_IDKlienta.Text);
-            updateCommand.Parameters.AddWithValue("@dataOd", Tb_DataOD.Text);
-            updateCommand.Parameters.AddWithValue("@dataDo", Tb_DataDO.Text);
-            if (Tb_Wypozyczenie.Text != String.Empty)
+            try
             {
-                updateCommand.ExecuteNonQuery();
-                wyslaneInfo("Zaktualizowano rekord");
+                update = "update Wypozyczenie set IDSprzetu = @sprzet, IDKlienta = @klient, Data_Od = @dataOd, Data_Do = @dataDo where IDWypozyczenia = @ID";
+                updateCommand = new SqlCommand(update, connection);
+                updateCommand.Parameters.AddWithValue("@ID", Tb_Wypozyczenie.Text);
+                updateCommand.Parameters.AddWithValue("@sprzet", Tb_IDSprzetu.Text);
+                updateCommand.Parameters.AddWithValue("@klient", Tb_IDKlienta.Text);
+                updateCommand.Parameters.AddWithValue("@dataOd", Tb_DataOD.Text);
+                updateCommand.Parameters.AddWithValue("@dataDo", Tb_DataDO.Text);
+                if (Tb_Wypozyczenie.Text != String.Empty)
+                {
+                    updateCommand.ExecuteNonQuery();
+                    wyslaneInfo($"Zaktualizowano rekord o numerze ID = {Tb_Wypozyczenie.Text} w tabeli Wypozyczenie.");
+                }
+                else
+                {
+                    wyslaneInfo("Wprowadź ID");
+                }
             }
-            else
+            catch (Exception exc)
             {
-                wyslaneInfo("Wprowadź ID");
+                wyslaneInfo(exc.Message);
             }
         }
 

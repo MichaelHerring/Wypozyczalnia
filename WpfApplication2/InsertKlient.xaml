@@ -162,7 +162,7 @@
                  Padding="2"/>
         <Button x:Name="btn1"
                 Style="{DynamicResource RoundedButtonStyle}"
-                Content="Wstaw" 
+                Content="Dodaj" 
                 Grid.Row="7" 
                 Grid.Column="1" 
                 HorizontalAlignment="Center"

@@ -48,6 +48,7 @@ namespace WpfApplication2
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
+            btn2.IsEnabled = true;
             try //jeśli nie ma połączenia wykonuje sie finally, gdzie zamykany jest reader, który nie został utworzony, dlatego potrzebny jeszcze jeden try catch
             {
                 try
@@ -66,7 +67,7 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
+                    btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     tB1.Text = "";
                     tB2.Text = "";
@@ -85,7 +86,6 @@ namespace WpfApplication2
             }
             catch(Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
@@ -97,9 +97,10 @@ namespace WpfApplication2
                 try
                 {
                     int i = 0;
+                    string id = tB0.Text;
                     delCommand = new SqlCommand(delete, connection);
                     delCommand.Parameters.AddWithValue("@ID", tB0.Text);
-                    i = delCommand.ExecuteNonQuery(); //number of affected rows
+                    i = delCommand.ExecuteNonQuery();
                     tB0.Text = "";
                     tB1.Text = "";
                     tB2.Text = "";
@@ -109,12 +110,10 @@ namespace WpfApplication2
                     tB6.Text = "";
                     if (i != 0)
                     {
-                        //MessageBox.Show("Usunięto rekord");
-                        wyslaneInfo("Usunięto rekord");
+                        wyslaneInfo($"Usunięto rekord o numerze ID = {id} w tabeli Klient.");
                     }
                     else
                     {
-                        //MessageBox.Show("Błąd podczas usuwania.", "Error");
                         wyslaneInfo("Błąd podczas usuwania.");
                     }
                 }
@@ -123,6 +122,11 @@ namespace WpfApplication2
                     wyslaneInfo(exc.Message);
                 }
             }
+        }
+
+        private void tB0_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btn2.IsEnabled = false;
         }
     }
 }

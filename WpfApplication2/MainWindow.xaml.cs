@@ -102,23 +102,19 @@ namespace WpfApplication2
             NavAnimation.BeginTime = TimeSpan.FromSeconds(1);
             btn5.BeginAnimation(OpacityProperty, NavAnimation);
 
+            //animacje podkreślenia głównych przycisków
             BorderAnimation1 = new DoubleAnimation();
-            //BorderAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
             BorderAnimation1.From = 104;
             BorderAnimation1.To = 116;
             BorderAnimation1.Duration = TimeSpan.FromSeconds(0.25);
 
             BorderAnimation2 = new DoubleAnimation();
-            //BorderAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
             BorderAnimation2.From = 116;
             BorderAnimation2.To = 104;
             BorderAnimation2.Duration = TimeSpan.FromSeconds(0.25);
         }
 
-       
-
         //Główne przyciski z menu
-
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
             if (czy_otwarta_pierwsza == false)
@@ -163,20 +159,6 @@ namespace WpfApplication2
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            if (StackPanel4.Visibility == Visibility.Visible)
-            {
-                StackPanel4.Visibility = Visibility.Hidden;
-            }
-            else if (StackPanel4.Visibility == Visibility.Hidden)
-            {
-                StackPanel4.Visibility = Visibility.Visible;
-                DoubleAnimation animation = new DoubleAnimation();
-                animation.From = 0;
-                animation.To = 100;
-                animation.Duration = TimeSpan.FromSeconds(0.20);
-                StackPanel4.BeginAnimation(HeightProperty, animation);
-            }*/
             if (czy_otwarta_czwarta == false)
             {
                 StackPanel4.Visibility = Visibility.Visible;
@@ -230,6 +212,7 @@ namespace WpfApplication2
 
             Rectangle3.BeginAnimation(WidthProperty, BorderAnimation1);
         }
+
         private void btn5_MouseEnter(object sender, MouseEventArgs e)
         {
             StackPanel1.Visibility = Visibility.Hidden;
@@ -352,7 +335,7 @@ namespace WpfApplication2
             czy_otwarta_druga = false;
         }
 
-        //Przyciski do wyswietlania formularzy do updatowania konkretnych tabel
+        //Przyciski do wyswietlania formularzy do aktualizowania konkretnych tabel
         private void btnKlientUpdate_Click(object sender, RoutedEventArgs e)
         {
             Container.Content = new UpdateKlient(connection);
@@ -386,17 +369,29 @@ namespace WpfApplication2
         {
             if (SideStackPannel.Visibility == Visibility.Visible)
             {
-                SideStackPannel.Visibility = Visibility.Hidden;
+                DoubleAnimation animation1 = new DoubleAnimation();
+                animation1.From = 240;
+                animation1.To = 0;
+                animation1.Duration = TimeSpan.FromSeconds(0.15);
+                animation1.Completed += new EventHandler(animationCompleted); //zdarzenie poniżej
+                SideStackPannel.BeginAnimation(WidthProperty, animation1);
+                //SideStackPannel.Visibility = Visibility.Hidden;
             }
             else if (SideStackPannel.Visibility == Visibility.Hidden)
             {
                 SideStackPannel.Visibility = Visibility.Visible;
-                DoubleAnimation animation = new DoubleAnimation();
-                animation.From = 0;
-                animation.To = 160;
-                animation.Duration = TimeSpan.FromSeconds(0.20);
-                SideStackPannel.BeginAnimation(WidthProperty, animation);
+                DoubleAnimation animation2 = new DoubleAnimation();
+                animation2.From = 0;
+                animation2.To = 240;
+                animation2.Duration = TimeSpan.FromSeconds(0.15);
+                SideStackPannel.BeginAnimation(WidthProperty, animation2);
             }
+        }
+
+        //zdarzenie użyte przy zamykaniu panelu bocznego
+        private void animationCompleted(object sender, EventArgs e)
+        {
+            SideStackPannel.Visibility = Visibility.Hidden;
         }
 
         private void KliKniecie_w_oknie(object sender, MouseButtonEventArgs e)

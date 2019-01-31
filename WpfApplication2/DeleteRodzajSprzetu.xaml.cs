@@ -50,6 +50,7 @@ namespace WpfApplication2
 
         private void btn_Pokaz_Click(object sender, RoutedEventArgs e)
         {
+            btn_Usun.IsEnabled = true;
             try
             {
                 try
@@ -63,6 +64,7 @@ namespace WpfApplication2
                 }
                 catch(Exception exc)
                 {
+                    btn_Usun.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     TBTEXT.Text = "";
                 }
@@ -88,6 +90,7 @@ namespace WpfApplication2
                 try
                 {
                     int i = 0;
+                    string id = TBID.Text;
                     delcmd = new SqlCommand(delete, connection);
                     delcmd.Parameters.AddWithValue("@ID", TBID.Text);
                     i = delcmd.ExecuteNonQuery();
@@ -95,7 +98,7 @@ namespace WpfApplication2
                     if (i != 0)
                     {
                         //MessageBox.Show("Usunięto rekord");
-                        wyslaneInfo("Usunięto rekord");
+                        wyslaneInfo($"Usunięto rekord o numerze ID = {id} w tabeli RodzajSprzetu.");
                     }
                     else
                     {
@@ -109,6 +112,11 @@ namespace WpfApplication2
                     wyslaneInfo(exc.Message);
                 }
             }            
+        }
+
+        private void TBID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btn_Usun.IsEnabled = false;
         }
     }
 }

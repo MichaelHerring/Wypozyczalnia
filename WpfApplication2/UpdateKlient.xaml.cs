@@ -65,7 +65,6 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     tB1.Text = "";
@@ -85,30 +84,36 @@ namespace WpfApplication2
             }
             catch (Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            update = "update Klient set Imie = @imie, Nazwisko = @nazwisko, Data_Urodzenia = @data, Telefon = @telefon, Miasto = @miasto, Kraj = @kraj where IDKlienta = @ID";
-            updateCommand = new SqlCommand(update, connection);
-            updateCommand.Parameters.AddWithValue("@ID", tB0.Text);
-            updateCommand.Parameters.AddWithValue("@imie", tB1.Text);
-            updateCommand.Parameters.AddWithValue("@nazwisko", tB2.Text);
-            updateCommand.Parameters.AddWithValue("@data", tB3.Text);
-            updateCommand.Parameters.AddWithValue("@telefon", tB4.Text);
-            updateCommand.Parameters.AddWithValue("@miasto", tB5.Text);
-            updateCommand.Parameters.AddWithValue("@kraj", tB6.Text);
-            if (tB0.Text != String.Empty)
+            try
             {
-                updateCommand.ExecuteNonQuery();
-                wyslaneInfo("Zaktualizowano rekord");
+                update = "update Klient set Imie = @imie, Nazwisko = @nazwisko, Data_Urodzenia = @data, Telefon = @telefon, Miasto = @miasto, Kraj = @kraj where IDKlienta = @ID";
+                updateCommand = new SqlCommand(update, connection);
+                updateCommand.Parameters.AddWithValue("@ID", tB0.Text);
+                updateCommand.Parameters.AddWithValue("@imie", tB1.Text);
+                updateCommand.Parameters.AddWithValue("@nazwisko", tB2.Text);
+                updateCommand.Parameters.AddWithValue("@data", tB3.Text);
+                updateCommand.Parameters.AddWithValue("@telefon", tB4.Text);
+                updateCommand.Parameters.AddWithValue("@miasto", tB5.Text);
+                updateCommand.Parameters.AddWithValue("@kraj", tB6.Text);
+                if (tB0.Text != String.Empty)
+                {
+                    updateCommand.ExecuteNonQuery();
+                    wyslaneInfo($"Zaktualizowano rekord o numerze ID = {tB0.Text} w tabeli Klient.");
+                }
+                else
+                {
+                    wyslaneInfo("Wprowadź ID");
+                }
             }
-            else
+            catch(Exception exc)
             {
-                wyslaneInfo("Wprowadź ID");
+                wyslaneInfo(exc.Message);
             }
         }
 

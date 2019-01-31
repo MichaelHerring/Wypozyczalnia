@@ -48,6 +48,7 @@ namespace WpfApplication2
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
+            btn2.IsEnabled = true;
             try
             {
                 try
@@ -62,10 +63,12 @@ namespace WpfApplication2
                     Tb_Data.Text = reader.GetSqlDateTime(3).ToString();
                     Tb_Opis.Text = reader.GetString(4);
                     Tb_Plec.Text = reader.GetString(5);
+                    Tb_Cena.Text = reader.GetDouble(6).ToString();
                     reader.Close();
                 }
                 catch(Exception exc)
                 {
+                    btn2.IsEnabled = false;
                     wyslaneInfo(exc.Message);
                     Tb_Kategoria.Text = "";
                     Tb_Sprzet.Text = "";
@@ -95,6 +98,7 @@ namespace WpfApplication2
                     try
                     {
                         int i = 0;
+                        string id = Tb_Sprzet.Text;
                         delcmd = new SqlCommand(delete, conn);
                         delcmd.Parameters.AddWithValue("@ID", Tb_Sprzet.Text);
                         i = delcmd.ExecuteNonQuery();
@@ -107,12 +111,10 @@ namespace WpfApplication2
 
                         if (i != 0)
                         {
-                            //MessageBox.Show("Usunięto rekord");
-                            wyslaneInfo("Usunięto rekord");
+                            wyslaneInfo($"Usunięto rekord o numerze ID = {id} w tabeli Sprzet.");
                         }
                         else
                         {
-                            //MessageBox.Show("Błąd podczas usuwania.", "Error");
                             wyslaneInfo("Błąd podczas usuwania.");
                         }
                     }
@@ -122,6 +124,11 @@ namespace WpfApplication2
                         wyslaneInfo(exc.Message);
                     }
                 }
+        }
+
+        private void Tb_ID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btn2.IsEnabled = false;
         }
     }
 }

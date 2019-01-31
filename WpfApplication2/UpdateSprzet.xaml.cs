@@ -29,6 +29,12 @@ namespace WpfApplication2
         SqlCommand updateCommand;
         SqlDataReader reader;
 
+        string fillID = "select IDKategorii from Rodzaj_Sprzetu order by IDKategorii";
+        SqlCommand command1;
+        SqlDataReader reader1;
+
+        string fillNazwa = "select distinct Nazwa_Sprzetu from Sprzet";
+
         //delegat i zdarzenie do przekazywania wiadomości
         public delegate void WyslijInfo(string komunikat);
         public static event WyslijInfo wyslaneInfo;
@@ -60,6 +66,7 @@ namespace WpfApplication2
                     Tb_Data.Text = reader.GetDateTime(3).ToString();
                     Tb_Opis.Text = reader.GetString(4);
                     Tb_Plec.Text = reader.GetString(5);
+                    Tb_Cena.Text = reader.GetDouble(6).ToString();
                     reader.Close(); //zamknięcie readera
                 }
                 catch (Exception exc)
@@ -72,6 +79,7 @@ namespace WpfApplication2
                     Tb_Data.Text = "";
                     Tb_Opis.Text = "";
                     Tb_Plec.Text = "";
+                    Tb_Cena.Text = "";
                 }
                 finally
                 {
@@ -83,35 +91,79 @@ namespace WpfApplication2
             }
             catch (Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            update = "update Sprzet set IDKategorii = @kategoria, Nazwa_Sprzetu = @nazwa, Data_Zakupu = @data, Opis = @opis, Meski_Damski = @plec where IDSprzetu = @ID";
-            updateCommand = new SqlCommand(update, connection);
-            updateCommand.Parameters.AddWithValue("@ID", Tb_ID.Text);
-            updateCommand.Parameters.AddWithValue("@kategoria", Tb_Kategoria.Text);
-            updateCommand.Parameters.AddWithValue("@nazwa", Tb_Sprzet.Text);
-            updateCommand.Parameters.AddWithValue("@data", Tb_Data.Text);
-            updateCommand.Parameters.AddWithValue("@opis", Tb_Opis.Text);
-            updateCommand.Parameters.AddWithValue("@plec", Tb_Plec.Text);
-            if (Tb_ID.Text != String.Empty)
+            try
             {
-                updateCommand.ExecuteNonQuery();
-                wyslaneInfo("Zaktualizowano rekord");
+                update = "update Sprzet set IDKategorii = @kategoria, Nazwa_Sprzetu = @nazwa, Data_Zakupu = @data, Opis = @opis, Meski_Damski = @plec, CenaZaGodzine = @cena where IDSprzetu = @ID";
+                updateCommand = new SqlCommand(update, connection);
+                updateCommand.Parameters.AddWithValue("@ID", Tb_ID.Text);
+                updateCommand.Parameters.AddWithValue("@kategoria", Tb_Kategoria.Text);
+                updateCommand.Parameters.AddWithValue("@nazwa", Tb_Sprzet.Text);
+                updateCommand.Parameters.AddWithValue("@data", Tb_Data.Text);
+                updateCommand.Parameters.AddWithValue("@opis", Tb_Opis.Text);
+                updateCommand.Parameters.AddWithValue("@plec", Tb_Plec.Text);
+                updateCommand.Parameters.AddWithValue("@cena", Tb_Cena.Text);
+                if (Tb_ID.Text != String.Empty)
+                {
+                    updateCommand.ExecuteNonQuery();
+                    wyslaneInfo($"Zaktualizowano rekord o numerze ID = {Tb_ID.Text} w tabeli Sprzet.");
+                }
+                else
+                {
+                    wyslaneInfo("Wprowadź ID");
+                }
             }
-            else
+            catch(Exception exc)
             {
-                wyslaneInfo("Wprowadź ID");
+                wyslaneInfo(exc.Message);
             }
         }
 
         private void Tb_ID_TextChanged(object sender, TextChangedEventArgs e)
         {
             btn2.IsEnabled = false;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            try //jeśli nie ma połączenia wykonuje sie finally, gdzie zamykany jest reader, który nie został utworzony, dlatego potrzebny jeszcze jeden try catch
+            {
+                try
+                {
+                    command1 = new SqlCommand(fillID, connection);
+                    reader1 = command1.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        Tb_Kategoria.Items.Add(reader1.GetInt16(0));
+                    }
+                    reader1.Close();
+
+                    command1 = new SqlCommand(fillNazwa, connection);
+                    reader1 = command1.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        Tb_Sprzet.Items.Add(reader1.GetString(0));
+                    }
+                    reader1.Close();
+                }
+                catch (Exception exc)
+                {
+                    wyslaneInfo(exc.Message);
+                }
+                finally
+                {
+                    reader1.Close();
+                }
+            }
+            catch (Exception exc)
+            {
+                wyslaneInfo(exc.Message);
+            }
         }
     }
 }

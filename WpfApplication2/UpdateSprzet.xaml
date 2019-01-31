@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="525"
       Title="UpdateKlient"
-      Background="#d5d6d2">
+      Background="#d5d6d2"
+      Loaded="Page_Loaded">
 
     <Page.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
@@ -35,6 +36,11 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="IsEditable" Value="True" />
         </Style>
         <Style TargetType="Rectangle">
             <Setter Property="Effect">
@@ -79,6 +85,7 @@
         <Label Content="Data Zakupu"  FontSize="18" Grid.Column="0" Grid.Row="3"/>
         <Label Content="Opis"  FontSize="18" Grid.Column="0" Grid.Row="4"/>
         <Label Content="Męski/Damski"  FontSize="18" Grid.Column="0" Grid.Row="5"/>
+        <Label Content="Cena za godzinę"  FontSize="18" Grid.Column="0" Grid.Row="6"/>
 
         <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 100 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
@@ -86,6 +93,8 @@
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="3" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="4" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="5" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        <Rectangle Fill="White" Grid.Column="1" Grid.Row="6" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
+        
         <TextBox x:Name="Tb_ID"
                  Grid.Column="1"
                  Grid.Row="0"
@@ -113,7 +122,19 @@
                      BlurRadius="4"/>
             </Button.Effect>
         </Button>
-        <TextBox x:Name="Tb_Kategoria" 
+        <ComboBox x:Name="Tb_Kategoria" 
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 FontSize="18"
+                 Margin="16 5 4 5"
+                 Padding="2"/>
+        <ComboBox x:Name="Tb_Sprzet" 
+                 Grid.Column="1"
+                 Grid.Row="2"
+                 FontSize="18"
+                 Margin="16 5 4 5"
+                 Padding="2"/>
+        <!--TextBox x:Name="Tb_Kategoria" 
                  Grid.Column="1"
                  Grid.Row="1"
                  FontSize="18"
@@ -124,7 +145,7 @@
                  Grid.Row="2"
                  FontSize="18"
                  Margin="16 5 16 5"
-                 Padding="2"/>
+                 Padding="2"/-->
         <TextBox x:Name="Tb_Data" 
                  Grid.Column="1"
                  Grid.Row="3"
@@ -137,16 +158,33 @@
                  FontSize="18"
                  Margin="16 5 16 5"
                  Padding="2"/>
-        <TextBox x:Name="Tb_Plec" 
+        <!--TextBox x:Name="Tb_Plec" 
                  Grid.Column="1"
                  Grid.Row="5"
                  FontSize="18"
                  Margin="16 5 16 5"
+                 Padding="2"/-->
+        <ComboBox x:Name="Tb_Plec" 
+                 Grid.Column="1"
+                 Grid.Row="5"
+                 FontSize="18"
+                 Margin="16 5 4 5"
+                 Padding="2">
+            <ComboBoxItem>k</ComboBoxItem>
+            <ComboBoxItem>m</ComboBoxItem>
+            <ComboBoxItem>k/m</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="Tb_Cena" 
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 FontSize="18"
+                 Margin="16 5 16 5"
                  Padding="2"/>
+        
         <Button x:Name="btn2"
                 Style="{DynamicResource RoundedButtonStyle}"
                 Content="Aktualizuj" 
-                Grid.Row="6" 
+                Grid.Row="7" 
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
                 Margin="0 2 0 2"
