@@ -49,28 +49,32 @@
         </Style>
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="Resources/background.jpg"/>
+        <ImageBrush ImageSource="Resources/background.jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
+        <Rectangle Fill="Black" Width="450" Opacity="0.3" Height="350" RadiusY="4" RadiusX="4" HorizontalAlignment="Center"/>
         <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0"/>
         <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
+        <Image Source="Resources/user.png"  Width="20" HorizontalAlignment="Left"  Margin="114,106,0,0" VerticalAlignment="Top"/>
+        <Image Source="Resources/password.png"  Width="18" HorizontalAlignment="Left"  Margin="114,0,0,0" VerticalAlignment="Center"/>
         <TextBlock
                  HorizontalAlignment="Center" 
                  VerticalAlignment="Top"
                  Text="login"
                  Foreground="Gray"
                  Height="26" 
-                 Width="200"
+                 Width="160"
                  Padding="1"
                  Margin="0,102,0,0"
                  FontSize="18"/>
+        
         <TextBlock 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"
             Text="hasło"
             Foreground="Gray"
-            Width="200" 
+            Width="160" 
             Height="26"
             FontSize="18"
             Padding="1"/>
@@ -78,7 +82,7 @@
                  HorizontalAlignment="Center" 
                  VerticalAlignment="Top" 
                  Height="26" 
-                 Width="200"
+                 Width="160"
                  Padding="1"
                  Margin="0,102,0,0"
                  FontSize="18"
@@ -89,7 +93,7 @@
                      HorizontalAlignment="Center" 
                      VerticalAlignment="Center"
                      Padding="0"
-                     Width="200" 
+                     Width="160" 
                      Height="26"
                      FontSize="18"
                      BorderThickness="0"
@@ -102,8 +106,8 @@
                 Width="220"
                 Height="32"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Margin="0,193,0,0"                 
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,96"                 
                 Click="btn1_Click">
             <Button.Effect>
                 <DropShadowEffect
@@ -121,5 +125,6 @@
                   Margin="10,10,0,0" 
                   Height="20" 
                   Width="130"/>
+        
     </Grid>
 </Window>
