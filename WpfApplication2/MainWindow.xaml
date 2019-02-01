@@ -37,7 +37,11 @@
         </Style>
     </Window.Resources>
     <Grid>
-
+        <Image Source="Resources/background.jpg" Stretch="UniformToFill"  Grid.ColumnSpan="2" Margin="-8 0">
+            <Image.Effect>
+                <BlurEffect Radius="20"/>
+            </Image.Effect>
+        </Image>
         <!--Menu-->
         <DockPanel x:Name="Navigation" 
                    HorizontalAlignment="Stretch"  
@@ -45,6 +49,12 @@
                    LastChildFill="True" 
                    VerticalAlignment="Top" 
                    Background="#353c3f" >
+            <DockPanel.Effect>
+                <DropShadowEffect BlurRadius="6" 
+                                  Direction="270" 
+                                  Opacity="0.6" 
+                                  ShadowDepth="1"/>
+            </DockPanel.Effect>
             <Button x:Name="btn2"
                     Content="Dodaj"
                     Width="100"
@@ -85,8 +95,8 @@
                     MouseEnter="btn5_MouseEnter"
                     MouseLeave="btn5_MouseLeave"
                     Click="btn5_Click" />
-            <Grid>
-                <DockPanel x:Name="SearchPanel" LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 46 0">
+            <Grid Margin="50,0,0,0">
+                <DockPanel x:Name="SearchPanel" LastChildFill="False" HorizontalAlignment="Right" Margin="0 0 40 0">
                     <Label Content="Tabela:" Foreground="White" Padding="8 6" />
                     <ComboBox x:Name="ComboBoxTabela" Height="24" Width="100" DropDownClosed="ComboBoxTabela_DropDownClosed">
                         <ComboBox.Effect>
@@ -150,7 +160,7 @@
         <!--Panel boczny-->
         <StackPanel x:Name="SideStackPannel" 
                     Background="#FF858585"
-                    Width="240" 
+                    Width="232" 
                     HorizontalAlignment="Right" 
                     Margin="0 30 0 0"
                     Visibility="Hidden"
@@ -162,11 +172,11 @@
                                   BlurRadius="8"
                                   ShadowDepth="3"/>
             </StackPanel.Effect>
-            <Label Height="25" Width="55" Content="Raporty" FontWeight="Bold" />
-            <Button Height="25" Background="#FF858585" Content="Raport 1" />
-            <Button Height="25" Background="#FF858585" Content="Raport 2" />
-            <Button Height="25" Background="#FF858585" Content="Raport 3" />
-            <Button Height="25" Background="#FF858585" Content="Raport 4" />
+            <Label Height="40" HorizontalContentAlignment="Center" Width="100" Content="Raporty" FontSize="22" FontWeight="Bold" />
+            <Button Height="40" Background="#FF858585" Content="Raport 1" />
+            <Button Height="40" Background="#FF858585" Content="Raport 2" />
+            <Button Height="40" Background="#FF858585" Content="Raport 3" />
+            <Button Height="40" Background="#FF858585" Content="Raport 4" />
         </StackPanel>
 
         <!--Listy rozwijane-->
@@ -297,9 +307,8 @@
         <!--Frames, Search Panel, Message panel-->
         <Grid Margin="0 30 0 0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65"></ColumnDefinition>
-                <ColumnDefinition Width="460"/>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="525"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -308,14 +317,14 @@
 
             <!--Frame 1-->
             <Frame x:Name="Container" 
-                   BorderThickness="1, 0, 1, 1"
-                   BorderBrush="Black"
+                   BorderThickness="0"
                    Grid.Column="0"
-                   NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
+                   NavigationUIVisibility="Hidden" >
+            </Frame>
 
             <!--Frame 2-->
             <Frame x:Name="Container2" 
-                   BorderThickness="0, 0, 1, 1" 
+                   BorderThickness="0, 0, 0, 0" 
                    BorderBrush="Black"
                    Grid.Column="2"
                    NavigationUIVisibility="Hidden"
@@ -327,11 +336,19 @@
                 Grid.ColumnSpan="3"
                 Background="#7f807e"
                 BorderThickness="2"
-                BorderBrush="#353c3f"/>
+                BorderBrush="#353c3f"
+                Opacity="0.95">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="8" 
+                                      Direction="90" 
+                                      Opacity="0.6" 
+                                      ShadowDepth="1"/>
+                </Label.Effect>
+            </Label>
             <Label
                    Content="Powiadomienia"
-                   Padding="24 4"
-                   FontSize="14"
+                   Padding="30 2"
+                   FontSize="16"
                    Background="#353c3f"
                    Foreground="White"
                    Grid.Row="1"
@@ -340,12 +357,12 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Stretch" 
                    Grid.ColumnSpan="3"/>
-            <Image x:Name="ImageBulb" Source="Resources/bulb.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
-            <Image x:Name="ImageBulbBlack" Source="Resources/bulb-black.png" Height="26" Width="26" Margin="2,0,0,112" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
+            <Image x:Name="ImageBulb" Source="Resources/bulb.png" Height="30" Width="30" Margin="2,0,0,110" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
+            <Image x:Name="ImageBulbBlack" Source="Resources/bulb-black.png" Height="30" Width="30" Margin="2,0,0,110" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1"/>
             <ScrollViewer x:Name="MessageViewer"
                        Margin="24,30,2,0"
-                       Padding="2"
-                       FontSize="12"
+                       Padding="8 4"
+                       FontSize="14"
                        FontFamily="Consolas"
                        Foreground="White"
                        Grid.Row="1" 

@@ -8,7 +8,8 @@
         Height="350" 
         Width="450" 
         Loaded="Window_Loaded"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        KeyDown="Window_KeyDown">
 
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
@@ -41,90 +42,91 @@
                         ShadowDepth="3"
                         Direction="330"
                         Color="Black"
-                        Opacity="0.4"
+                        Opacity="0.6"
                         BlurRadius="4">
                     </DropShadowEffect>
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
-    <Window.Background>
-        <ImageBrush ImageSource="Resources/background.jpg" Stretch="UniformToFill"/>
-    </Window.Background>
     <Grid>
-        <Rectangle Fill="Black" Width="450" Opacity="0.3" Height="350" RadiusY="4" RadiusX="4" HorizontalAlignment="Center"/>
-        <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0"/>
-        <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-        <Image Source="Resources/user.png"  Width="20" HorizontalAlignment="Left"  Margin="114,106,0,0" VerticalAlignment="Top"/>
-        <Image Source="Resources/password.png"  Width="18" HorizontalAlignment="Left"  Margin="114,0,0,0" VerticalAlignment="Center"/>
-        <TextBlock
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top"
-                 Text="login"
-                 Foreground="Gray"
-                 Height="26" 
-                 Width="160"
-                 Padding="1"
-                 Margin="0,102,0,0"
-                 FontSize="18"/>
-        
-        <TextBlock 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center"
-            Text="hasło"
-            Foreground="Gray"
-            Width="160" 
-            Height="26"
-            FontSize="18"
-            Padding="1"/>
-        <TextBox x:Name="tB1"
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top" 
-                 Height="26" 
-                 Width="160"
-                 Padding="1"
-                 Margin="0,102,0,0"
-                 FontSize="18"
-                 BorderThickness="0" 
-                 Background="Transparent"
-                 PreviewMouseDown="tB1_PreviewMouseDown"/>
-        <PasswordBox x:Name="passwordBox" 
+        <Image Source="Resources/background.jpg" Stretch="UniformToFill" Grid.ColumnSpan="2" Margin="-8 0 -8 -8">
+            <Image.Effect>
+                <BlurEffect Radius="10"/>
+            </Image.Effect>
+        </Image>
+        <Rectangle Fill="Black" Width="450" Opacity="0.2" Height="350" RadiusY="4" RadiusX="4" HorizontalAlignment="Center"/>
+        <Grid Width="224" Height="160">
+            <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            <Rectangle Fill="White" Width="220" Height="30" RadiusY="4" RadiusX="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Source="Resources/user.png"  Width="20" HorizontalAlignment="Left"  Margin="7,25,0,0" VerticalAlignment="Top"/>
+            <Image Source="Resources/password.png"  Width="18" HorizontalAlignment="Left"  Margin="8,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock
                      HorizontalAlignment="Center" 
-                     VerticalAlignment="Center"
-                     Padding="0"
-                     Width="160" 
-                     Height="26"
+                     VerticalAlignment="Top"
+                     Text="login"
+                     Foreground="Gray"
+                     Height="26" 
+                     Width="165"
+                     Padding="1"
+                     Margin="0,22,0,0"
+                     FontSize="18"/>
+            <TextBlock 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Text="hasło"
+                Foreground="Gray"
+                Width="165" 
+                Height="26"
+                FontSize="18"
+                Padding="1"/>
+            <TextBox x:Name="tB1"
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Height="26" 
+                     Width="165"
+                     Padding="1"
+                     Margin="0,22,0,0"
                      FontSize="18"
-                     BorderThickness="0"
+                     BorderThickness="0" 
                      Background="Transparent"
-                     PreviewMouseDown="passwordBox_PreviewMouseDown"/>
-        
-        <Button x:Name="btn1"
-                Style="{DynamicResource RoundedButtonStyle}"
-                Content="Zaloguj"
-                Width="220"
-                Height="32"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,96"                 
-                Click="btn1_Click">
-            <Button.Effect>
-                <DropShadowEffect
-                    ShadowDepth="3"
-                    Direction="330"
-                    Color="Black"
-                    Opacity="0.4"
-                    BlurRadius="4"/>
-            </Button.Effect>
-        </Button>
+                     PreviewMouseDown="tB1_PreviewMouseDown"/>
+            <PasswordBox x:Name="passwordBox" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"
+                         Padding="0"
+                         Width="165" 
+                         Height="26"
+                         FontSize="18"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         PreviewMouseDown="passwordBox_PreviewMouseDown"/>
+            <Button x:Name="btn1"
+                    Style="{DynamicResource RoundedButtonStyle}"
+                    Content="Zaloguj"
+                    Width="224"
+                    Height="32"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,18"                 
+                    Click="btn1_Click">
+                <Button.Effect>
+                    <DropShadowEffect
+                        ShadowDepth="3"
+                        Direction="330"
+                        Color="Black"
+                        Opacity="0.4"
+                        BlurRadius="4"/>
+                </Button.Effect>
+            </Button>
+        </Grid>
+
         <CheckBox x:Name="chB1" 
                   Content="Trusted Connection" 
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Top" 
-                  Margin="10,10,0,0" 
+                  Margin="110,240,0,0" 
                   Height="20" 
                   Width="130"/>
-        
     </Grid>
 </Window>

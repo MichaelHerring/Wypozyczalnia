@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="525"
       Title="UpdateKlient"
-      Background="#d5d6d2">
+      Background="Transparent">
 
     <Page.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
@@ -35,6 +35,14 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="2" Opacity="0.6" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Rectangle">
             <Setter Property="Effect">
@@ -76,38 +84,31 @@
                Grid.Row="0"
                FontSize="18"
                Content="Wprowadź ID Klienta:" 
-               Foreground="Black"
                FontWeight="Bold"/>
         <Label Grid.Column="0" 
                Grid.Row="1"
                FontSize="18"
-               Content="Imię" 
-               Foreground="Black"/>
+               Content="Imię" />
         <Label Grid.Column="0" 
                Grid.Row="2"
                FontSize="18"
-               Content="Nazwisko" 
-               Foreground="Black"/>
+               Content="Nazwisko" />
         <Label Grid.Column="0" 
                Grid.Row="3"
                FontSize="18"
-               Content="Data Urodzenia" 
-               Foreground="Black"/>
+               Content="Data Urodzenia" />
         <Label Grid.Column="0" 
                Grid.Row="4"
                FontSize="18"
-               Content="Telefon" 
-               Foreground="Black"/>
+               Content="Telefon" />
         <Label Grid.Column="0" 
                Grid.Row="5"
                FontSize="18"
-               Content="Miasto" 
-               Foreground="Black"/>
+               Content="Miasto" />
         <Label Grid.Column="0" 
                Grid.Row="6"
                FontSize="18"
-               Content="Kraj" 
-               Foreground="Black"/>
+               Content="Kraj" />
         <Rectangle Fill="White" Grid.Column="1" RadiusY="4" RadiusX="4" Margin="0 4 100 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="1" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
         <Rectangle Fill="White" Grid.Column="1" Grid.Row="2" RadiusY="4" RadiusX="4" Margin="0 4 0 4"/>
@@ -184,7 +185,7 @@
                 Grid.Row="7" 
                 Grid.Column="1" 
                 HorizontalAlignment="Center"
-                Margin="0 2 0 2"
+                Margin="0 4 0 0"
                 Click="btn2_Click"
                 IsEnabled="False">
             <Button.Effect>

@@ -222,8 +222,8 @@
     <Resource Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\user.png" />
     <Resource Include="Resources\password.png" />
+    <Resource Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

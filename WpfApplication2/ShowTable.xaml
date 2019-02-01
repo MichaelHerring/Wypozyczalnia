@@ -9,7 +9,24 @@
       Title="Table1"
       Loaded="Page_Loaded">
 
+    <Page.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="DataGridCell.IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FFF99A58" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <DataGrid x:Name="DataGr" Background="#d5d6d2" IsReadOnly="True"></DataGrid>
+        <DataGrid x:Name="DataGr" 
+                  RowBackground="White" 
+                  IsReadOnly="True" >
+            <DataGrid.Background>
+                <SolidColorBrush Color="White" Opacity="0.6"></SolidColorBrush>
+            </DataGrid.Background>
+        </DataGrid>
     </Grid>
 </Page>

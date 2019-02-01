@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="525"
       Title="InsertRodzaj"
-      Background="#d5d6d2">
+      Background="Transparent">
 
     <Page.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
@@ -35,6 +35,14 @@
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="2" Opacity="0.6" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Rectangle">
             <Setter Property="Effect">
@@ -100,7 +108,7 @@
                 Grid.Column="1" 
                 Click="btn1_Click" 
                 HorizontalAlignment="Center" 
-                Margin="0 2 0 2">
+                Margin="0 4 0 0">
             <Button.Effect>
                 <DropShadowEffect
                      ShadowDepth="4"

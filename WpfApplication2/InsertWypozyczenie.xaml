@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="525"
       Title="InsertWypozyczenie"
-      Background="#d5d6d2">
+      Background="Transparent">
 
     <Page.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
@@ -36,6 +36,14 @@
         <Style TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="2" Opacity="0.6" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="BorderThickness" Value="0" />
@@ -135,7 +143,7 @@
                 Content="Dodaj" 
                 Grid.Row="5" 
                 Grid.Column="1"
-                Margin="0 2"
+                Margin="0 4 0 0"
                 Click="btn1_Click">
             <Button.Effect>
                 <DropShadowEffect

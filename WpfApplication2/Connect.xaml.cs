@@ -77,6 +77,7 @@ namespace WpfApplication2
             }
         }
 
+        //ukrywanie hintów
         private void tB1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             tB1.Background = Brushes.White;
@@ -85,6 +86,15 @@ namespace WpfApplication2
         private void passwordBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             passwordBox.Background = Brushes.White;
+        }
+
+        //kliknięcie entera
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                btn1_Click(this, new RoutedEventArgs());
+            }
         }
     }
 }

@@ -51,6 +51,7 @@ namespace WpfApplication2
             UpdateSprzet.wyslaneInfo += WyswietlKomunikat;
             UpdateRodzaj.wyslaneInfo += WyswietlKomunikat;
             UpdateWypozyczenie.wyslaneInfo += WyswietlKomunikat;
+            ShowTable.wyslaneInfo += WyswietlKomunikat;
         } 
         
         //przekazywanie wiadomości       
@@ -59,20 +60,24 @@ namespace WpfApplication2
             MessageViewer.Content += komunikat + "\n";
             MessageViewer.ScrollToEnd();
 
-            ImageBulb.Opacity = 0;
-            ImageBulbBlack.Opacity = 1;
-            DoubleAnimation FadeIn = new DoubleAnimation();
-            FadeIn.From = 0;
-            FadeIn.To = 1;
-            FadeIn.Duration = TimeSpan.FromSeconds(3);
+            //ImageBulb.Opacity = 0;
+            //ImageBulbBlack.Opacity = 1;
+            //DoubleAnimation FadeIn = new DoubleAnimation();
+            //FadeIn.From = 0;
+            //FadeIn.To = 1;
+            //FadeIn.Duration = TimeSpan.FromSeconds(3);
 
             DoubleAnimation FadeOut = new DoubleAnimation();
             FadeOut.From = 1;
             FadeOut.To = 0;
-            FadeOut.Duration = TimeSpan.FromSeconds(3);
+            FadeOut.Duration = TimeSpan.FromSeconds(0.2);
 
-            ImageBulb.BeginAnimation(OpacityProperty, FadeOut);
-            ImageBulbBlack.BeginAnimation(OpacityProperty, FadeIn);
+            //ImageBulb.BeginAnimation(OpacityProperty, FadeOut);
+            //ImageBulbBlack.BeginAnimation(OpacityProperty, FadeIn);
+
+            RepeatBehavior Repeat = new RepeatBehavior(8.0);
+            FadeOut.RepeatBehavior = Repeat;
+            ImageBulbBlack.BeginAnimation(OpacityProperty, FadeOut);
             System.Media.SystemSounds.Beep.Play();
         }
 
@@ -85,6 +90,9 @@ namespace WpfApplication2
             btn3.Opacity = 0;
             btn4.Opacity = 0;
             btn5.Opacity = 0;
+            Container.Opacity = 0;
+
+            Container.Content = new InsertKlient();
 
             DoubleAnimation NavAnimation = new DoubleAnimation();
             NavAnimation.BeginTime = TimeSpan.FromSeconds(0.4);
@@ -92,6 +100,7 @@ namespace WpfApplication2
             NavAnimation.To = 1;
             NavAnimation.Duration = TimeSpan.FromSeconds(0.5);
             btn2.BeginAnimation(OpacityProperty, NavAnimation);
+            Container.BeginAnimation(OpacityProperty, NavAnimation);
 
             NavAnimation.BeginTime = TimeSpan.FromSeconds(0.6);
             btn3.BeginAnimation(OpacityProperty, NavAnimation);
