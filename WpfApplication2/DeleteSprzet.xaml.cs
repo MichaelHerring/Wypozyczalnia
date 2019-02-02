@@ -98,16 +98,17 @@ namespace WpfApplication2
                     try
                     {
                         int i = 0;
-                        string id = Tb_Sprzet.Text;
+                        string id = Tb_ID.Text;
                         delcmd = new SqlCommand(delete, conn);
-                        delcmd.Parameters.AddWithValue("@ID", Tb_Sprzet.Text);
+                        delcmd.Parameters.AddWithValue("@ID", Tb_ID.Text);
                         i = delcmd.ExecuteNonQuery();
-                        Tb_Sprzet.Text = "";
+                        Tb_ID.Text = "";
                         Tb_Kategoria.Text = "";
                         Tb_Sprzet.Text = "";
                         Tb_Opis.Text = "";
                         Tb_Data.Text = "";
                         Tb_Plec.Text = "";
+                        Tb_Cena.Text = "";
 
                         if (i != 0)
                         {

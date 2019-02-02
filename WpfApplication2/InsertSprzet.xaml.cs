@@ -70,7 +70,6 @@ namespace WpfApplication2
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
                 }
                 finally
@@ -80,7 +79,6 @@ namespace WpfApplication2
             }
             catch(Exception exc)
             {
-                //MessageBox.Show(exc.Message);
                 wyslaneInfo(exc.Message);
             }
         }
@@ -89,7 +87,6 @@ namespace WpfApplication2
         {
             if (cB1.Text == "" || cB2.Text == "" || dP1.Text == "" || tB4.Text == "" || cB3.Text == "" || tB5.Text == "")
             {
-                //MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
                 wyslaneInfo("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.");
             }
             else
@@ -105,12 +102,17 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    //MessageBox.Show("Dodano rekord do tabeli Sprzęt");
-                    wyslaneInfo("Dodano rekord do tabeli Sprzęt");
+                    wyslaneInfo("Dodano rekord do tabeli Sprzęt.");
+                    tB0.Text = "";
+                    cB1.Text = "";
+                    cB2.Text = "";
+                    cB3.Text = "";
+                    dP1.Text = "";
+                    tB4.Text = "";
+                    tB5.Text = "";
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
                 }
             }

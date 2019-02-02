@@ -44,7 +44,6 @@ namespace WpfApplication2
         {
             if (tB1.Text == "")
             {
-                //MessageBox.Show("Wprowadź wszystkie dane.", "Uwaga!");
                 wyslaneInfo("Wprowadź wszystkie dane.");
             }
             else
@@ -55,12 +54,12 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    //MessageBox.Show("Dodano rekord do tabeli Klient");
-                    wyslaneInfo("Dodano rekord do tabeli Klient");
+                    wyslaneInfo("Dodano rekord do tabeli RodzajSprzetu.");
+                    tB0.Text = "";
+                    tB1.Text = "";
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
                 }
             }

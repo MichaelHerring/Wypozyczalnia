@@ -44,7 +44,6 @@ namespace WpfApplication2
         {
             if (tB1.Text == "" || tB2.Text == "" || tB3.Text == "" || tB4.Text == "")
             {
-                //MessageBox.Show("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.", "Uwaga!");
                 wyslaneInfo("Wprowadź wszystkie dane, żadne pole nie może pozostać puste.");
             }
             else
@@ -58,12 +57,15 @@ namespace WpfApplication2
                 try
                 {
                     command.ExecuteNonQuery();
-                    //MessageBox.Show("Dodano rekord do tabeli Klient");
-                    wyslaneInfo("Dodano rekord do tabeli Klient");
+                    wyslaneInfo("Dodano rekord do tabeli Wypozyczenie.");
+                    tB0.Text = "";
+                    tB1.Text = "";
+                    tB2.Text = "";
+                    tB3.Text = "";
+                    tB4.Text = "";
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.Message);
                     wyslaneInfo(exc.Message);
                 }
             }
