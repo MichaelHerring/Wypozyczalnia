@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Windows.Media.Animation;
 
 namespace WpfApplication2
 {
@@ -32,7 +33,27 @@ namespace WpfApplication2
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            DoubleAnimation FadeIn = new DoubleAnimation();
+            FadeIn.From = 0;
+            FadeIn.To = 1;
+            FadeIn.Duration = TimeSpan.FromSeconds(0.8);
+            MainGrid.BeginAnimation(OpacityProperty, FadeIn);
 
+            HintLogin.Width = 0;
+            HintHaslo.Width = 0;
+            DoubleAnimation WidthAnimation = new DoubleAnimation();
+            WidthAnimation.From = 0;
+            WidthAnimation.To = 165;
+            WidthAnimation.BeginTime = TimeSpan.FromSeconds(0.3);
+            WidthAnimation.Duration = TimeSpan.FromSeconds(1.8);
+
+            HintLogin.BeginAnimation(WidthProperty, WidthAnimation);
+            HintHaslo.BeginAnimation(WidthProperty, WidthAnimation);
+
+            FadeIn.BeginTime = TimeSpan.FromSeconds(0.3);
+            FadeIn.Duration = TimeSpan.FromSeconds(0.3);
+            HintLogin.BeginAnimation(OpacityProperty, FadeIn);
+            HintHaslo.BeginAnimation(OpacityProperty, FadeIn);
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
